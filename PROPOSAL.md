@@ -72,6 +72,4 @@ This is my timeline for the project
 The biggest resource this will is other people testing. This is the biggest part because I may know how to use it, but it doesn't mean others will. This is why I will open testing pretty quick. I know friends/relatives who are good at coding so it won't be too hard to find testers. It won't cost any money, except for power bills, so there is no problem there. The one problem might have is time management, which is why I created a checklist that way I know what needs to be done in the time period.
 
 ## Conclusion
-Wrap it up. Why are you fired up about this project? Inspire us to support you,
-and give us a great reason to approve your project.
 This project is something I look forward doing, mainly because most of the stuff(GUI's and text editing) is something we haven't talked much about and will make me learn it in a way that is different. I think this project is worth while because it is something people, myself included, would use. It is something that is complex; It contains a compiler, simple GUI and alias support. I look forward to working on this project and hopefully others do too.
