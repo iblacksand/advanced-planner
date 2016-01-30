@@ -25,6 +25,7 @@ This program is an easy solution to having to time yourself, while also providin
 ## Timeline
 
 This is my timeline for the project
+__Will be constanly updated with additions/completions__
 
 ### February 26
 - [ ] Get all of the commands implemented
@@ -64,7 +65,7 @@ This is my timeline for the project
 - [ ] Create a readme for GUI and advanced scripting
 - [ ] Write 2 journal entries
 
-## May 27
+### May 27
 - [ ] Fix all of the errors
 - [ ] Write 2 journal entries
 
