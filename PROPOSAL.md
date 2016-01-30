@@ -25,6 +25,7 @@ This program is an easy solution to having to time yourself, while also providin
 ## Timeline
 
 This is my timeline for the project
+
 __Will be constanly updated with additions/completions__
 
 ### February 26
