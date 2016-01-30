@@ -11,5 +11,6 @@ John Elizarraras
  'ac' - auto-closes whatever is attached after time limit
  'f' - 'fragile' - breaks this if anything above it fails.
  These are the ideas I have so far. Hopefully I am able to add these since they would add a lot of functionality to the program.
+ 
 ---
  Word Count: [193](http://i.imgur.com/756ynTj.png)
