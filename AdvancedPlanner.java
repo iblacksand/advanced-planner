@@ -2,30 +2,44 @@ import java.util.*;
 import java.io.*;
 public class AdvancedPlanner
 {
-	private static boolean failures;
-	private static TiemUnit t = new TiemUnit();
+	private static int failures;
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		Script file = new Script();
 		failures = false;
 		boolean exit = false;
-		while(exit == false;)
+		while(exit == false)
 		{
 			runCommand();
 		}
 	}
 
-	public static loop(String[] props,String[] object)
+	public static void loop(String[] props,String[] object)
 	{
-		if(props[0].equals("f") && failures == true)
+		if(props[0].equals("f") && failures > 0)
 		{
-
+			gui.trowException("Error: Fragile and " + failures + " failures.");
 		}
 		else
 		{
 			file.toLine(file.currentLine() + 2);
 			int startLine = file.currentLine();
-			
+
+			int loopEnd = startLine();
+			for(int i = startLine; i < file.length(); i++)
+			{
+				String str = file.fullLine();
+				if(str.equals("}")) break;
+				else loopEnd++;
+			}
+			for(int i = 0; i < Integer.parseInt(String[1]); i++)
+			{
+				for(int p = startLine; i < loopEnd; p++)
+				{
+					runCommand(p);
+				}
+			}
+			file.toLine(loopEnd + 1);
 		}
 	}
 
@@ -40,7 +54,7 @@ public class AdvancedPlanner
 			loop(props,object);
 			break;
 			case "run":
-			run(props,object)
+			run(props,object);
 			break;
 			case "display":
 			display(props,object);
@@ -65,7 +79,7 @@ public class AdvancedPlanner
 			loop(props,object);
 			break;
 			case "run":
-			run(props,object)
+			run(props,object);
 			break;
 			case "display":
 			display(props,object);

@@ -12,13 +12,13 @@ The audience for Advanced Planner is anyone who wants to increase their producti
 This is a script based program that has its own syntax that allows many different fuctions this includes:
 
 * run - used to run a program. For example "run chrome for 5 min"
-* loop - used to loop through a list of other commands. For example "loop 5 sec 5x". This will loop the following commands (inside brackets) five times with five seconds inbetween
+* loop - used to loop through a list of other commands. For example "loop 5s 5". This will loop the following commands (inside brackets) five times with five seconds inbetween
 * display - used to display a certain text. For example "display hello world" will show hello world on the screen
 * more commands to come
 
 These commands won't have to be memorized with a custom GUI that will do the basic funtions. Learning the commands will allow you to do more advanced things with the set commands.It will also allow aliases to be used to execute code that you wrote before. For example, if you want to make a script that will go through a daily routine you can just do : "alias dailyroutine dailyroutine.txt". This allows you to quickly start your daily routine without the hassle of creating the script everytime.
 
-The special thing about this specific planner is the ability to "compile" the code before it is run. It allows you to know if the script you wrote will compile all the way through without having errors occur in the middle of your script. It is not garunteed success but will eliminate lots of small mistakes. 
+The special thing about this specific planner is the ability to "compile" the code before it is run. It allows you to know if the script you wrote will compile all the way through without having errors occur in the middle of your script. It is not garunteed success but will eliminate lots of small mistakes.
 
 This program is an easy solution to having to time yourself, while also providing a simple syntax that can be used for many different advanced things.
 
@@ -61,7 +61,7 @@ __Will be constanly updated with additions/completions__
 
 ### May 13
 - [ ] Gather all of the complaints and suggestions
-- [ ] Add or fix things found 
+- [ ] Add or fix things found
 - [ ] Clean up everything
 - [ ] Create a readme for GUI and advanced scripting
 - [ ] Write 2 journal entries

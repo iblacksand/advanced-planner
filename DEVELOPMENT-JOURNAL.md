@@ -1,7 +1,7 @@
 #Development Journal
 John Elizarraras
 ## Journal entry for the week of Jan 22 - 29
----
+
  During this week I finished the proposal file and started to think on ideas for commands. I thought about adding 'ask' and 'answer' subsets of the display function of which can be used as following:
  'display.ask what is your favorite color?'
  'display.answer.prop(cs) blue'
@@ -11,6 +11,6 @@ John Elizarraras
  'ac' - auto-closes whatever is attached after time limit
  'f' - 'fragile' - breaks this if anything above it fails.
  These are the ideas I have so far. Hopefully I am able to add these since they would add a lot of functionality to the program.
- 
+
 ---
  Word Count: [193](http://i.imgur.com/756ynTj.png)
