@@ -1,8 +1,17 @@
 import java.util.*;
 import java.io.*;
+/**
+*the base of the advanced planner
+*@author John Elizarraras
+*@version Feb. 1 2016
+*/
 public class AdvancedPlanner
 {
 	private static int failures;
+	/**
+	*the main method
+	*@param args arguments (not used)
+	*/
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		Script file = new Script();
@@ -10,10 +19,15 @@ public class AdvancedPlanner
 		boolean exit = false;
 		while(exit == false)
 		{
-			runCommand();
+			exit = runCommand();
 		}
 	}
 
+	/**
+	*the method that loops the code for the specified amount
+	*@param props the properties of the loop
+	*@param object array holding the information of the loop
+	*/
 	public static void loop(String[] props,String[] object)
 	{
 		if(props[0].equals("f") && failures > 0)
@@ -43,6 +57,10 @@ public class AdvancedPlanner
 		}
 	}
 
+	/**
+	*runs the commands in the script
+	*@return the boolean if the file is on its line
+	*/
 	public static boolean runCommandMain()
 	{
 		String command = file.command();
@@ -67,7 +85,10 @@ public class AdvancedPlanner
 		return file.isLastLine();
 	}
 
-
+	/**
+	*runs the command on the specified line
+	*@param k the line to look at
+	*/
 	public static void runCommand(int k)
 	{
 		String command = file.command(k);
