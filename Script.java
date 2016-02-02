@@ -46,7 +46,7 @@ public class Script
         {
             try
             {
-            String text = textReader.readLine();
+            String text = textReader.readLine().trim().toLowerCase();
             if(text!="")
             {
                 a.add(text);
@@ -150,4 +150,106 @@ public class Script
         }
         return command;
     }
+
+    /**
+    *gets the command portion of the specified line
+    *@param k the line to look at
+    *@return the command in the line
+    */
+    public String command(int k)
+    {
+        String line = file[k];
+        String command = "";
+        for(int i = 0; i < line.length(); i++)
+        {
+            String str = line.substring(i,i+1);
+            if(!(str.equals(" ") || str.equals(".")))
+            {
+                command += str;
+            }
+            else
+            {
+                break;
+            }
+        }
+        return command;
+    }
+
+    /**
+    *Gets the properties if the current line
+    *@return the array of properties
+    */
+    public String[] properties()
+    {
+        String line = file[curLine];
+        ArrayList<String> a = new ArrayList<String>();
+        for(int i = 0; i < line.length() - 5; i++)
+        {
+            String str = line.substring(i,i+5);
+            if(str.equals("prop(")) a.add(str.substring(i+6,i+7));
+        }
+
+        for(int i = 0; i < a.size(); i++)
+        {
+            String str = a.get(i);
+            switch(str)
+            {
+                case "fragile":
+                    a.set(i,"f");
+                    break;
+                case "autoclose":
+                    a.set(i,"ac");
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        String[] props = new String[a.size()];
+        for(int i = 0; i < props.length; i++)
+        {
+            props[i] = a.get(i);
+        }
+        return props;
+    }
+
+    /**
+    *Gets the properties on the line specified
+    *@param k the line to look at
+    *@return the properties of the line
+    */
+    public String[] properties(int k)
+    {
+        String line = file[k];
+        ArrayList<String> a = new ArrayList<String>();
+        for(int i = 0; i < line.length() - 5; i++)
+        {
+            String str = line.substring(i,i+5);
+            if(str.equals("prop(")) a.add(str.substring(i+6,i+7));
+        }
+
+        for(int i = 0; i < a.size(); i++)
+        {
+            String str = a.get(i);
+            switch(str)
+            {
+                case "fragile":
+                    a.set(i,"f");
+                    break;
+                case "autoclose":
+                    a.set(i,"ac");
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        String[] props = new String[a.size()];
+        for(int i = 0; i < props.length; i++)
+        {
+            props[i] = a.get(i);
+        }
+        return props;
+    }
+
 }
