@@ -1,0 +1,4 @@
+this is where you want to put your main script. Do not change this name!!!
+You must delete all of this before you start.
+
+If you want an example script you can use example.txt
