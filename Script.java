@@ -65,8 +65,6 @@ public class Script
             System.out.println(
                 "Error reading file '"
                 + path + "'");
-            // Or we could just do this:
-            // ex.printStackTrace();
         }
     }
 
@@ -265,8 +263,8 @@ public class Script
                 case "ac":
                     break;
                 default:
-                    //a.remove(i);
-                    //i--;
+                    a.remove(i);
+                    i--;
                     break;
             }
 
