@@ -30,7 +30,7 @@ __Will be constanly updated with additions/completions__
 
 ### February 26
 - [ ] Get all of the commands implemented
-- [ ] Make the program able to interpret the code
+- [x] Make the program able to interpret the code
 - [ ] Test for all possible errors
 - [ ] Write 5 journal entries
 
