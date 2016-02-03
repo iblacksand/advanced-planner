@@ -1,5 +1,11 @@
-import java.util.*;
-import java.io.*;
+package file;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
 *This is the file for reading and interpreting the file
 *@author John Elizarraras
@@ -49,7 +55,7 @@ public class Script
                 if(line != null) a.add(line.toLowerCase().trim());
                 else break;
             }
-
+            br.close();
             file = new String[a.size()];
             for(int i = 0; i < file.length; i++)
             {
@@ -208,8 +214,12 @@ public class Script
                 case "ac":
                     break;
                 default:
+                    if((str.substring((str.length()-1)).equals("h") || str.substring(str.length()-1).equals("m") || str.substring(str.length()-1).equals("s")) && numUtils.isNumber(str.substring(0,str.length()-1)));
+                    else
+                    {
                     a.remove(i);
                     i--;
+                    }
                     break;
             }
 
@@ -390,7 +400,7 @@ public class Script
         int t = 0;
         try
         {
-            FileReader fr = new FileReader("main.txt");
+            FileReader fr = new FileReader(path);
             BufferedReader textReader = new BufferedReader(fr);
 
             for(int i =0; i<1000;i++)

@@ -1,5 +1,7 @@
-import java.util.*;
-import java.io.*;
+package main;
+
+import file.Script;
+
 /**
 *the base of the advanced planner
 *@author John Elizarraras
@@ -8,18 +10,19 @@ import java.io.*;
 public class AdvancedPlanner
 {
 	private static int failures;
+	private static Script file;
+	private static Gui gui = new Gui();
 	/**
 	*the main method
 	*@param args arguments (not used)
 	*/
 	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		Script file = new Script();
-		failures = false;
+		file = new Script();
+		failures = 0;
 		boolean exit = false;
 		while(exit == false)
 		{
-			exit = runCommand();
+			exit = runCommandMain();
 		}
 	}
 
