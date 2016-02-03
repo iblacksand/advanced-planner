@@ -3,7 +3,7 @@ import java.io.*;
 /**
 *This is the file for reading and interpreting the file
 *@author John Elizarraras
-*@version Febuary 1 2016
+*@version Febuary 2 2016
 */
 public class Script
 {
@@ -372,11 +372,19 @@ public class Script
         return objects;
     }
 
+    /**
+    *gets the file size
+    *@return the file size
+    */
     public int fileSize()
     {
         return file.length;
     }
 
+    /**
+    *gets the size of the text file
+    *@return the size of the original text file
+    */
     public int textSize()
     {
         int t = 0;
