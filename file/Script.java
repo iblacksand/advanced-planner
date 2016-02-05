@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
-*This is the file for reading and interpreting the file
-*@author John Elizarraras
-*@version Febuary 2 2016
-*/
+ *This is the file for reading and interpreting the file
+ *@author John Elizarraras
+ *@version Febuary 2 2016
+ */
 public class Script
 {
     private String path;
@@ -18,8 +18,8 @@ public class Script
     private String[] file;
 
     /**
-    *The constructor where it sets the defualt path of main.txt
-    */
+     *The constructor where it sets the defualt path of main.txt
+     */
     public Script()
     {
         path = "main.txt";
@@ -28,9 +28,9 @@ public class Script
     }
 
     /**
-    *The constructor for a specific path
-    *@param path the path of the special file
-    */
+     *The constructor for a specific path
+     *@param path the path of the special file
+     */
     public Script(String path)
     {
         this.path = path;
@@ -39,8 +39,8 @@ public class Script
     }
 
     /**
-    *reads the file and puts it in an array
-    */
+     *reads the file and puts it in an array
+     */
     public void readFile()
     {
         ArrayList<String> a = new ArrayList<String>();
@@ -75,45 +75,45 @@ public class Script
     }
 
     /**
-    * Makes the script move to the next line
-    */
+     * Makes the script move to the next line
+     */
     public void nextLine()
     {
         curLine++;
     }
 
     /**
-    *gets the current line the script is looking at
-    *@return the current line
-    */
+     *gets the current line the script is looking at
+     *@return the current line
+     */
     public int currentLine()
     {
         return curLine;
     }
 
     /**
-    *sets the line on the script to the one specified
-    *@param k the line to move to
-    */
+     *sets the line on the script to the one specified
+     *@param k the line to move to
+     */
     public void toLine(int k)
     {
         curLine = k;
     }
 
     /**
-    *gets the full string of the current line
-    *@return the full line
-    */
+     *gets the full string of the current line
+     *@return the full line
+     */
     public String fullLine()
     {
         return file[curLine];
     }
 
     /**
-    *gets the full string of the specified line
-    *@param k the index of the line
-    *@return the full line
-    */
+     *gets the full string of the specified line
+     *@param k the index of the line
+     *@return the full line
+     */
     public String fullLine(int k)
     {
         try
@@ -128,40 +128,40 @@ public class Script
     }
 
     /**
-    *gets the command portion of the current line
-    *@return the command in the line
-    */
+     *gets the command portion of the current line
+     *@return the command in the line
+     */
     public String command()
     {
         String command = "";
-    	try
-    	{
-        String line = file[curLine];
-        for(int i = 0; i < line.length(); i++)
+        try
         {
-            String str = line.substring(i,i+1);
-            if(!(str.equals(" ") || str.equals(".")))
+            String line = file[curLine];
+            for(int i = 0; i < line.length(); i++)
             {
-                command += str;
-            }
-            else
-            {
-                break;
+                String str = line.substring(i,i+1);
+                if(!(str.equals(" ") || str.equals(".")))
+                {
+                    command += str;
+                }
+                else
+                {
+                    break;
+                }
             }
         }
-    	}
-    	catch(Exception e)
-    	{
-    	
-    	}
-    	return command;
+        catch(Exception e)
+        {
+
+        }
+        return command;
     }
 
     /**
-    *gets the command portion of the specified line
-    *@param k the line to look at
-    *@return the command in the line
-    */
+     *gets the command portion of the specified line
+     *@param k the line to look at
+     *@return the command in the line
+     */
     public String command(int k)
     {
         String line = file[k];
@@ -182,130 +182,141 @@ public class Script
     }
 
     /**
-    *Gets the properties if the current line
-    *@return the array of properties
-    */
+     *Gets the properties if the current line
+     *@return the array of properties
+     */
     public String[] properties(int k)
     {
-        String line = file[k];
-        ArrayList<String> a = new ArrayList<String>();
-        for(int i = 0; i < line.length() - 6; i++)
+        if(!isLastLine())
         {
-            String str = line.substring(i,i+5);
-            if(str.equals("prop("))
+            String line = file[k];
+            ArrayList<String> a = new ArrayList<String>();
+            for(int i = 0; i < line.length() - 6; i++)
             {
-                String full = "";
-                for(int x = i + 5; x < line.length(); x++)
+                String str = line.substring(i,i+5);
+                if(str.equals("prop("))
                 {
-                    String c = line.substring(x,x+1);
-                    if(!c.equals(")")) full += c;
-                    else break;
+                    String full = "";
+                    for(int x = i + 5; x < line.length(); x++)
+                    {
+                        String c = line.substring(x,x+1);
+                        if(!c.equals(")")) full += c;
+                        else break;
+                    }
+                    a.add(full);
                 }
-                a.add(full);
             }
-        }
 
-        for(int i = 0; i < a.size(); i++)
-        {
-            String str = a.get(i);
-            switch(str)
+            for(int i = 0; i < a.size(); i++)
             {
-                case "fragile":
+                String str = a.get(i);
+                switch(str)
+                {
+                    case "fragile":
                     a.set(i,"f");
                     break;
-                case "autoclose":
+                    case "autoclose":
                     a.set(i,"ac");
                     break;
-                case "f":
+                    case "f":
                     break;
-                case "ac":
+                    case "ac":
                     break;
-                default:
+                    default:
                     if((str.substring((str.length()-1)).equals("h") || str.substring(str.length()-1).equals("m") || str.substring(str.length()-1).equals("s")) && isNumber(str.substring(0,str.length()-1)));
                     else
                     {
-                    a.remove(i);
-                    i--;
+                        a.remove(i);
+                        i--;
                     }
                     break;
-            }
+                }
 
+            }
+            String[] props = new String[a.size()];
+            for(int i = 0; i < props.length; i++)
+            {
+                props[i] = a.get(i);
+            }
+            return props;
         }
-        String[] props = new String[a.size()];
-        for(int i = 0; i < props.length; i++)
+        else
         {
-            props[i] = a.get(i);
+            return new String[0];
         }
-        return props;
     }
 
     /**
-    *Gets the properties on the line specified
-    *@param k the line to look at
-    *@return the properties of the line
-    */
+     *Gets the properties on the line specified
+     *@param k the line to look at
+     *@return the properties of the line
+     */
     public String[] properties()
     {
-    	if(!isLastLine())
-    	{
-        String line = file[curLine];
-        ArrayList<String> a = new ArrayList<String>();
-        for(int i = 0; i < line.length() - 6; i++)
+        if(!isLastLine())
         {
-            String str = line.substring(i,i+5);
-            if(str.equals("prop("))
+            String line = file[curLine];
+            ArrayList<String> a = new ArrayList<String>();
+            for(int i = 0; i < line.length() - 6; i++)
             {
-                String full = "";
-                for(int x = i + 5; x < line.length(); x++)
+                String str = line.substring(i,i+5);
+                if(str.equals("prop("))
                 {
-                    String c = line.substring(x,x+1);
-                    if(!c.equals(")")) full += c;
-                    else break;
+                    String full = "";
+                    for(int x = i + 5; x < line.length(); x++)
+                    {
+                        String c = line.substring(x,x+1);
+                        if(!c.equals(")")) full += c;
+                        else break;
+                    }
+                    a.add(full);
                 }
-                a.add(full);
             }
-        }
 
-        for(int i = 0; i < a.size(); i++)
-        {
-            String str = a.get(i);
-            switch(str)
+            for(int i = 0; i < a.size(); i++)
             {
-                case "fragile":
+                String str = a.get(i);
+                switch(str)
+                {
+                    case "fragile":
                     a.set(i,"f");
                     break;
-                case "autoclose":
+                    case "autoclose":
                     a.set(i,"ac");
                     break;
-                case "f":
+                    case "f":
                     break;
-                case "ac":
+                    case "ac":
                     break;
-                default:
-                    a.remove(i);
-                    i--;
+                    default:
+                    if((str.substring((str.length()-1)).equals("h") || str.substring(str.length()-1).equals("m") || str.substring(str.length()-1).equals("s")) && isNumber(str.substring(0,str.length()-1)));
+                    else
+                    {
+                        a.remove(i);
+                        i--;
+                    }
                     break;
+                }
+
+            }
+            String[] props = new String[a.size()];
+            for(int i = 0; i < props.length; i++)
+            {
+                props[i] = a.get(i);
             }
 
+            return props;
         }
-        String[] props = new String[a.size()];
-        for(int i = 0; i < props.length; i++)
+        else
         {
-            props[i] = a.get(i);
+            return new String[0];
         }
-    	
-        return props;
-    	}
-    	else
-    	{
-    		return new String[0];
-    	}
     }
 
     /**
-    * gets the objects of the current line
-    * @return the array of objects
-    */
+     * gets the objects of the current line
+     * @return the array of objects
+     */
     public String[] object()
     {
         ArrayList<String> a = new ArrayList<String>();
@@ -350,10 +361,10 @@ public class Script
     }
 
     /**
-    * gets the objects in the specified line
-    * @param k the line to look at
-    * @return the array of objects
-    */
+     * gets the objects in the specified line
+     * @param k the line to look at
+     * @return the array of objects
+     */
     public String[] object(int k)
     {
         ArrayList<String> a = new ArrayList<String>();
@@ -398,23 +409,27 @@ public class Script
     }
 
     /**
-    *gets the file size
-    *@return the file size
-    */
+     *gets the file size
+     *@return the file size
+     */
     public int fileSize()
     {
         return file.length;
     }
-    
+
+    /**
+     * gets the length of the script
+     * @reuturn the number of lines in the script
+     */
     public int length()
     {
-    	return file.length;
+        return file.length;
     }
 
     /**
-    *gets the size of the text file
-    *@return the size of the original text file
-    */
+     *gets the size of the text file
+     *@return the size of the original text file
+     */
     public int textSize()
     {
         int t = 0;
@@ -427,7 +442,7 @@ public class Script
             {
                 String text = textReader.readLine();
                 if(text==null
-                   ||text.trim().equals(""))
+                ||text.trim().equals(""))
                 {
                     textReader.close();
                     t = i;
@@ -447,44 +462,53 @@ public class Script
         return t;
     }
 
+    /**
+     * checks if the current line is past the last line
+     * @return false if the current line is less then the line or true if not
+     */
     public boolean isLastLine()
     {
-    	return curLine < length();
+        return !(curLine < length());
     }
-    
+
+    /**
+     * checks if the string is a number
+     * @param str the string to check
+     * @return true if the string is a number
+     */
     public boolean isNumber(String str)
     {
-    	boolean result = true;
-    	for(int i = 0; i < str.length(); i++)
-    	{
-    		switch(str.substring(i,i+1))
-    		{
-    			case "1":
-    				break;
-    			case "2":
-    				break;
-    			case "3":
-    				break;
-    			case "4":
-    				break;
-    			case "5":
-    				break;
-    			case "6":
-    				break;
-    			case "7":
-    				break;
-    			case "8":
-    				break;
-    			case "9":
-    				break;
-    			case "0":
-    				break;
-    			default:
-    				result = false;
-    				break;
-    		}
-    	}
-    	
-    return result;
+        boolean result = true;
+        for(int i = 0; i < str.length(); i++)
+        {
+            switch(str.substring(i,i+1))
+            {
+                case "1":
+                break;
+                case "2":
+                break;
+                case "3":
+                break;
+                case "4":
+                break;
+                case "5":
+                break;
+                case "6":
+                break;
+                case "7":
+                break;
+                case "8":
+                break;
+                case "9":
+                break;
+                case "0":
+                break;
+                default:
+                result = false;
+                break;
+            }
+        }
+
+        return result;
     }
 }

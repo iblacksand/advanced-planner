@@ -1,1 +1,3 @@
-display hello world
+run.prop(autoclose).prop(fragile) chrome
+display.prop(f) hello world
+loop.prop(f) 5m 5

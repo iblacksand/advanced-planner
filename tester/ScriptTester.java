@@ -5,16 +5,23 @@ import file.Script;
 /**
  * tests the script.java
  * @author Johnny
- *
+ * @version 2/5/2015
  */
 public class ScriptTester
 {
+    /**
+     * starts the test
+     * @param args the arguments for the test
+     */
     public static void main(String[] args)
     {
         System.out.println("hello");
-        standard("example.sc");
+        standard("example.txt");
     }
 
+    /**
+     * does a standard test of the main.txt file
+     */
     public static void standard()
     {
         Script file = new Script();
@@ -24,7 +31,7 @@ public class ScriptTester
             String c = file.command();
             String[] p = file.properties();
             String[] o = file.object();
-            System.out.println(c);
+            System.out.println("Command - " + c);
             for(int x = 0; x < p.length; x++)
             {
                 System.out.println(p[x]);
@@ -37,6 +44,10 @@ public class ScriptTester
         }
     }
 
+    /**
+     * does a standard test on a special file
+     * @param path the path of the file
+     */
     public static void standard(String path)
     {
         Script file = new Script(path);
