@@ -11,19 +11,29 @@ public class AdvancedPlanner
 {
 	private static int failures;
 	private static Script file;
-	private static Gui gui = new Gui();
 	/**
 	*the main method
 	*@param args arguments (not used)
 	*/
 	public static void main(String[] args) {
 		file = new Script();
+		if(args.length > 0)
+		{
+			setPath(args[0]);
+		}
 		failures = 0;
+		System.out.println("hello");
 		boolean exit = false;
 		while(exit == false)
 		{
+			System.out.println("running command");
 			exit = runCommandMain();
 		}
+	}
+	
+	public static void setPath(String path)
+	{
+		file = new Script(path);
 	}
 
 	/**
@@ -35,21 +45,21 @@ public class AdvancedPlanner
 	{
 		if(props[0].equals("f") && failures > 0)
 		{
-			gui.trowException("Error: Fragile and " + failures + " failures.");
+			System.out.println("Fragile error");
 		}
 		else
 		{
 			file.toLine(file.currentLine() + 2);
 			int startLine = file.currentLine();
 
-			int loopEnd = startLine();
+			int loopEnd = startLine;
 			for(int i = startLine; i < file.length(); i++)
 			{
 				String str = file.fullLine();
 				if(str.equals("}")) break;
 				else loopEnd++;
 			}
-			for(int i = 0; i < Integer.parseInt(String[1]); i++)
+			for(int i = 0; i < Integer.parseInt(object[1]); i++)
 			{
 				for(int p = startLine; i < loopEnd; p++)
 				{
@@ -68,7 +78,7 @@ public class AdvancedPlanner
 	{
 		String command = file.command();
 		String[] props = file.properties();
-		String object = file.object();
+		String[] object = file.object();
 		switch(command)
 		{
 			case "loop":
@@ -79,7 +89,6 @@ public class AdvancedPlanner
 			break;
 			case "display":
 			display(props,object);
-			break;
 			break;
 			default:
 			break;
@@ -94,9 +103,11 @@ public class AdvancedPlanner
 	*/
 	public static void runCommand(int k)
 	{
+		if(!file.isLastLine())
+		{
 		String command = file.command(k);
 		String[] props = file.properties(k);
-		String object = file.object(k);
+		String[] object = file.object(k);
 		switch(command)
 		{
 			case "loop":
@@ -108,9 +119,50 @@ public class AdvancedPlanner
 			case "display":
 			display(props,object);
 			break;
-			break;
 			default:
 			break;
 		}
+		}
 	}
-}
+		public static void run(String[] props, String[] objs)
+		{
+			if(contains(props,"f") && failures > 0)
+			{
+				
+			}
+			else
+			{
+				String full = "";
+				for(int i = 0; i < objs.length; i++)
+				{
+					full += objs[i];
+				}
+				try{
+				Process p = Runtime.getRuntime().exec(full);
+				}
+				catch(Exception e)
+				{
+					failures++;
+				}
+			}
+		}
+		
+		public static boolean contains(String[] strA, String find)
+		{
+			boolean result = false;
+			for(int i = 0; i < strA.length; i++)
+			{
+				if(strA[i].equalsIgnoreCase(find)) result = true;
+			}
+			return result;
+		}
+		
+		public static void display(String[] props, String[] objs)
+		{
+			for(int i = 0; i < objs.length; i++)
+			{
+				System.out.print(objs[i]);
+			}
+		}
+	}
+

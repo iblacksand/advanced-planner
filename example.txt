@@ -1,6 +1,1 @@
-run.prop(5m).prop(ac) chrome
-loop.prop(f) 5s 2
-{
-display hello
-display world
-}
+display hello world

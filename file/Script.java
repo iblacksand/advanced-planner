@@ -133,8 +133,10 @@ public class Script
     */
     public String command()
     {
-        String line = file[curLine];
         String command = "";
+    	try
+    	{
+        String line = file[curLine];
         for(int i = 0; i < line.length(); i++)
         {
             String str = line.substring(i,i+1);
@@ -147,7 +149,12 @@ public class Script
                 break;
             }
         }
-        return command;
+    	}
+    	catch(Exception e)
+    	{
+    	
+    	}
+    	return command;
     }
 
     /**
@@ -214,7 +221,7 @@ public class Script
                 case "ac":
                     break;
                 default:
-                    if((str.substring((str.length()-1)).equals("h") || str.substring(str.length()-1).equals("m") || str.substring(str.length()-1).equals("s")) && numUtils.isNumber(str.substring(0,str.length()-1)));
+                    if((str.substring((str.length()-1)).equals("h") || str.substring(str.length()-1).equals("m") || str.substring(str.length()-1).equals("s")) && isNumber(str.substring(0,str.length()-1)));
                     else
                     {
                     a.remove(i);
@@ -239,6 +246,8 @@ public class Script
     */
     public String[] properties()
     {
+    	if(!isLastLine())
+    	{
         String line = file[curLine];
         ArrayList<String> a = new ArrayList<String>();
         for(int i = 0; i < line.length() - 6; i++)
@@ -284,7 +293,13 @@ public class Script
         {
             props[i] = a.get(i);
         }
+    	
         return props;
+    	}
+    	else
+    	{
+    		return new String[0];
+    	}
     }
 
     /**
@@ -390,6 +405,11 @@ public class Script
     {
         return file.length;
     }
+    
+    public int length()
+    {
+    	return file.length;
+    }
 
     /**
     *gets the size of the text file
@@ -427,4 +447,44 @@ public class Script
         return t;
     }
 
+    public boolean isLastLine()
+    {
+    	return curLine < length();
+    }
+    
+    public boolean isNumber(String str)
+    {
+    	boolean result = true;
+    	for(int i = 0; i < str.length(); i++)
+    	{
+    		switch(str.substring(i,i+1))
+    		{
+    			case "1":
+    				break;
+    			case "2":
+    				break;
+    			case "3":
+    				break;
+    			case "4":
+    				break;
+    			case "5":
+    				break;
+    			case "6":
+    				break;
+    			case "7":
+    				break;
+    			case "8":
+    				break;
+    			case "9":
+    				break;
+    			case "0":
+    				break;
+    			default:
+    				result = false;
+    				break;
+    		}
+    	}
+    	
+    return result;
+    }
 }
