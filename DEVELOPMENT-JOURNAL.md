@@ -23,7 +23,7 @@ John Elizarraras
  Word Count: [193](http://i.imgur.com/756ynTj.png)
 
 ## Journal entry for the week of Jan 30 - Feb 5
-During this week I got Script.java to be 'complete'. It can read the file and sort everything out. The only thing needed to be worked on it is to add all of the properties that I add. I also worked on AdvancedPlanner.java and got the skeleton of run and loop. I have to wait for the GUI to work in order for display to work. I also have been thinking about the .answer tag from above. I will probably make it a property and not a seperate thing. I also added some testers that will help the debugging part. I also added javadoc to all of the methods. I will start working on the compiler so that way I don't have to cram everything in two weeks. I also added a example.txt file that shows what a script could look like. I plan to test loop and hopefully I will be able to finish this in the next two weeks.
+During this week I got Script.java to be 'complete'. It can read the file and sort everything out. The only thing needed to be worked on it is to add all of the properties that I add. I also worked on AdvancedPlanner.java and got the skeleton of run and loop. I have to wait for the GUI to work in order for display to work. I also have been thinking about the .answer tag from above. I will probably make it a property and not a separate thing. I also added some testers that will help the debugging part. I also added Javadoc to all of the methods. I will start working on the compiler so that way I don't have to cram everything in two weeks. I also added a example.txt file that shows what a script could look like. I plan to test loop and hopefully I will be able to finish this in the next two weeks.
 
 ---
- Word Count: [163](http://i.imgur.com/Wc2BFM8.png)
+ Word Count: [160](http://i.imgur.com/Wc2BFM8.png)
