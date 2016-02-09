@@ -162,8 +162,11 @@ public class Script
      *@param k the line to look at
      *@return the command in the line
      */
-    public String command(int k)
+    @SuppressWarnings("unused")
+	public String command(int k)
     {
+    	if(k < length())
+    	{
         String line = file[k];
         String command = "";
         for(int i = 0; i < line.length(); i++)
@@ -177,8 +180,11 @@ public class Script
             {
                 break;
             }
+            return command;
         }
-        return command;
+    	}
+    	return "";
+
     }
 
     /**
@@ -187,7 +193,7 @@ public class Script
      */
     public String[] properties(int k)
     {
-        if(!isLastLine())
+        if(k < length())
         {
             String line = file[k];
             ArrayList<String> a = new ArrayList<String>();
@@ -319,6 +325,8 @@ public class Script
      */
     public String[] object()
     {
+    	if(!isLastLine())
+    	{
         ArrayList<String> a = new ArrayList<String>();
         String line = file[curLine];
         int start = 0;
@@ -358,6 +366,11 @@ public class Script
             objects = new String[0];
         }
         return objects;
+    	}
+    	else
+    	{
+    		return new String[0];
+    	}
     }
 
     /**
@@ -367,6 +380,8 @@ public class Script
      */
     public String[] object(int k)
     {
+    	if(k < length())
+    	{
         ArrayList<String> a = new ArrayList<String>();
         String line = file[k];
         int start = 0;
@@ -406,6 +421,11 @@ public class Script
             objects = new String[0];
         }
         return objects;
+    	}
+    	else
+    	{
+    		return new String[0];
+    	}
     }
 
     /**
@@ -419,7 +439,7 @@ public class Script
 
     /**
      * gets the length of the script
-     * @reuturn the number of lines in the script
+     * @return the number of lines in the script
      */
     public int length()
     {

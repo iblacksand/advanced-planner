@@ -47,12 +47,6 @@ public class AdvancedPlanner
      */
     public static void loop(String[] props,String[] object)
     {
-        if(props[0].equals("f") && failures > 0)
-        {
-            System.out.println("Fragile error");
-        }
-        else
-        {
             file.toLine(file.currentLine() + 2);
             int startLine = file.currentLine();
 
@@ -63,6 +57,7 @@ public class AdvancedPlanner
                 if(str.equals("}")) break;
                 else loopEnd++;
             }
+            System.out.println(Integer.parseInt(object[1]));
             for(int i = 0; i < Integer.parseInt(object[1]); i++)
             {
                 for(int p = startLine; i < loopEnd; p++)
@@ -71,7 +66,6 @@ public class AdvancedPlanner
                 }
             }
             file.toLine(loopEnd + 1);
-        }
     }
 
     /**
