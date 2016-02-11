@@ -1,6 +1,7 @@
 package main;
 
 import file.Script;
+import file.FileEditor;
 import java.util.Scanner;
 // import process builder
 
@@ -19,7 +20,7 @@ public class AdvancedPlanner
      *@param args arguments (not used)
      */
     public static void main(String[] args) {
-        file = new Script();
+        file = new Script(in.nextLine());
         if(args.length > 0)
         {
             setPath(args[0]);
@@ -27,7 +28,7 @@ public class AdvancedPlanner
         failures = 0;
         System.out.println("hello");
         boolean exit = false;
-        while(exit == false)
+        while(!exit)
         {
             System.out.println("running command");
             exit = runCommandMain();
@@ -135,13 +136,14 @@ public class AdvancedPlanner
     {
         if(contains(props,"f") && failures > 0)
         {
-
+            System.out.println("Error! Fragile with " + failures + "failures");
         }
         else
         {
             String full = combine(objs,true,false);
             try{
-                Process p = Runtime.getRuntime().exec(full);
+                ProcessBuilder pb = new ProcessBuilder(combine(objs,true,false));
+                Process p = pb.start();
             }
             catch(Exception e)
             {
@@ -159,9 +161,8 @@ public class AdvancedPlanner
     public static boolean contains(String[] strA, String find)
     {
         boolean result = false;
-        for(int i = 0; i < strA.length; i++)
-        {
-            if(strA[i].equalsIgnoreCase(find)) result = true;
+        for (String aStrA : strA) {
+            if (aStrA.equalsIgnoreCase(find)) result = true;
         }
         return result;
     }
@@ -173,9 +174,8 @@ public class AdvancedPlanner
      */
     public static void display(String[] props, String[] objs)
     {
-        for(int i = 0; i < objs.length; i++)
-        {
-            System.out.print(objs[i]);
+        for (String obj : objs) {
+            System.out.print(obj);
         }
     }
 
@@ -198,9 +198,8 @@ public class AdvancedPlanner
         if(toAddSpace) params += " ";
         if(newLines) params += "\n";
         String full = "";
-        for(int i = 0; i < ary.length; i++)
-        {
-            full += objs[i] + params;
+        for (String anAry : ary) {
+            full += anAry + params;
         }
         return full;
     }

@@ -1,13 +1,8 @@
 package file;
 
-import java.util.List;
+import java.io.*;
 import java.util.ArrayList;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.BufferedReader;
-import java.io.PrintWriter;
-import java.io.IOException;
+
 public class FileEditor
 {
 	File f;
@@ -79,10 +74,6 @@ public class FileEditor
                     textReader.close();
                     t = i;
                 }
-                else
-                {
-
-                }
 
             }
 
@@ -90,7 +81,20 @@ public class FileEditor
         }
         catch(IOException e)
         {
+			e.printStackTrace();
         }
         return t;
     }
+
+	/**
+	 * gets the full line at specfied index
+	 * @param index the index of the line
+	 * @return the full line in string form
+     */
+	public String line(int index)
+	{
+		String str = "";
+		if(index < file.size()) str = file.get(index);
+		return str;
+	}
 }

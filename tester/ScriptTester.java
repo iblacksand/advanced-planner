@@ -16,7 +16,7 @@ public class ScriptTester
     public static void main(String[] args)
     {
         System.out.println("hello");
-        standard("example.txt");
+        standard("example.sc");
     }
 
     /**
@@ -32,13 +32,11 @@ public class ScriptTester
             String[] p = file.properties();
             String[] o = file.object();
             System.out.println("Command - " + c);
-            for(int x = 0; x < p.length; x++)
-            {
-                System.out.println(p[x]);
+            for (String aP : p) {
+                System.out.println(aP);
             }
-            for(int x = 0; x < o.length; x++)
-            {
-                System.out.println(o[x]);
+            for (String anO : o) {
+                System.out.println(anO);
             }
             file.nextLine();
         }
@@ -58,13 +56,11 @@ public class ScriptTester
             String[] p = file.properties();
             String[] o = file.object();
             System.out.println(c);
-            for(int x = 0; x < p.length; x++)
-            {
-                System.out.println(p[x]);
+            for (String aP : p) {
+                System.out.println(aP);
             }
-            for(int x = 0; x < o.length; x++)
-            {
-                System.out.println(o[x]);
+            for (String anO : o) {
+                System.out.println(anO);
             }
             file.nextLine();
         }
