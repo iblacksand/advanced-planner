@@ -5,6 +5,7 @@ import java.awt.datatransfer.DataFlavor;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.jar.Pack200;
 
 public class FileEditor {
 	Scanner in = new Scanner(System.in);
@@ -25,6 +26,7 @@ public class FileEditor {
 	}
 
 	public void readFile() {
+		file = new ArrayList<String>();
 		try {
 			File f = new File(path);
 			BufferedReader r = new BufferedReader(new FileReader(f));
@@ -38,6 +40,24 @@ public class FileEditor {
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.exit(1);
+		}
+	}
+
+	public void write(ArrayList<String> ary)
+	{
+		try
+		{
+			File f = new File(path);
+			PrintWriter pw = new PrintWriter(new FileWriter(f));
+			for(String str : ary)
+			{
+				pw.println(str);
+			}
+			pw.close();
+			readFile();
+
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -81,22 +101,20 @@ public class FileEditor {
 		String input = in.nextLine().toLowerCase().trim();
 		if (input.equals("y") || input.equals("yes"))
 		{
-			try {
-				FileWriter fw = new FileWriter(path,true);
-				PrintWriter w = new PrintWriter(fw);
-				for (int i = 0; i < index; i++) {
-					w.println(file.get(i));
-				}
-				System.out.println("What do you want to change it to?");
-				w.println(in.nextLine());
-				readFile();
-				for(String str : file)
+			System.out.println("What do you want to change it too?");
+			input = in.nextLine();
+			String change = "";
+			for(int i = 0; i < input.length(); i++){
+				if(input.length() != file.get(index).length())
 				{
-					System.out.println(str);
+					change = input;
+					break;
 				}
-			} catch (IOException e) {
-				e.printStackTrace();
+				if(input.substring(i,i+1).equals("*")) change += file.get(index).substring(i,i+1);
+				else change += input.substring(i,i+1);
 			}
+			file.set(index, change);
+			write(file);
 		}
 	}
 
