@@ -27,3 +27,9 @@ During this week I got Script.java to be 'complete'. It can read the file and so
 
 ---
  Word Count: [160](http://i.imgur.com/Wc2BFM8.png)
+ 
+## Journal entry for the week of Feb 6 - Feb 14
+During this week I finally got to AdvancedPlanner to run a program. I also started to work on the FileEditor, which will be used to edit the current Script on the fly, in order to fix errors. It still has some errors in the insert and add methods but it currently is working fine. I want to create more commands because it currently doesn't have much function. I am going to start the testing, which has been started in the tester package. I already fixed errors in Script in respect to out of index errors. There is one error with loops where it will keep looping forever which I am currently looking into. One thing I am working on is the actually planning of more commands. I am thinking of adding something that can be used to time something with a Master timer, with small timers inside of it. I think that would be a good addition to improve productivity.
+
+---
+ Word Count : [160](http://i.imgur.com/uPOKlmi.png)

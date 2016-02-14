@@ -15,8 +15,8 @@ public class FileEditor {
 	public static void main(String[] args) {
 		FileEditor fileEditor = new FileEditor("example.sc");
 		System.out.println(fileEditor.textSize());
-		for(int i = 0; i < fileEditor.textSize(); i++) {
-			fileEditor.editLine(i);
+		for(int i = 0; i < 2; i++) {
+			fileEditor.addLine();
 		}
 	}
 
@@ -96,6 +96,10 @@ public class FileEditor {
 		return str;
 	}
 
+	/**
+	 * edits a line at a specified index
+	 * @param index the line to change
+     */
 	public void editLine(int index) {
 		System.out.println("line: " + file.get(index) + "\nDo You want to edit this line?");
 		String input = in.nextLine().toLowerCase().trim();
@@ -104,31 +108,58 @@ public class FileEditor {
 			System.out.println("What do you want to change it too?");
 			input = in.nextLine();
 			String change = "";
-			for(int i = 0; i < input.length(); i++){
-				if(input.length() != file.get(index).length())
-				{
-					change = input;
-					break;
-				}
+			int length = input.length();
+			if(length > file.get(index).length()) length = file.get(index).length();
+			for(int i = 0; i < length; i++){
 				if(input.substring(i,i+1).equals("*")) change += file.get(index).substring(i,i+1);
 				else change += input.substring(i,i+1);
+			}
+			if(length != input.length())
+			{
+				for(int i = length; i < input.length(); i++)
+				{
+					change += input.substring(i,i+1);
+				}
 			}
 			file.set(index, change);
 			write(file);
 		}
 	}
 
-	public String inStringForm(Clipboard clpbrd)
+	public void addLine()
 	{
-		String str = "error";
+		System.out.println("What do you want to add?");
+		file.add(in.nextLine());
+		write(file);
+	}
+
+	public void insertLine()
+	{
+		System.out.println("What do you want to insert?");
+		String input = in.nextLine();
+		System.out.println("Where do you want to insert");
+		String line = in.nextLine();
+		if(!isNumber(line)){
+			System.out.println("That is not a number!");
+		}
+		else{
+			file.add(Integer.parseInt(line), input);
+			write(file);
+		}
+	}
+
+	public boolean isNumber(String str)
+	{
+		boolean result = false;
 		try
 		{
-			str = "" + clpbrd.getData(DataFlavor.stringFlavor);
+			Integer.parseInt(str);
+			result = true;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
-			e.printStackTrace();
+
 		}
-		return str;
+		return result;
 	}
 }
