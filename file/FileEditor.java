@@ -7,11 +7,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.jar.Pack200;
 
+/**
+* FileEditor class
+* @author John Elizarraras
+* @version Feb 2 2016
+*/
 public class FileEditor {
 	Scanner in = new Scanner(System.in);
 	String path;
 	ArrayList<String> file = new ArrayList<String>();
 
+	/**
+	* main method to test the method
+	* @param args the arguments
+	*/
 	public static void main(String[] args) {
 		FileEditor fileEditor = new FileEditor("example.sc");
 		System.out.println(fileEditor.textSize());
@@ -20,11 +29,18 @@ public class FileEditor {
 		}
 	}
 
+	/**
+	* creates a new fileeditor editing the given path
+	* @param path the path to edit
+	*/
 	public FileEditor(String path) {
 		this.path = path;
 		readFile();
 	}
 
+	/**
+	* reads the file and adds it to an arraylist
+	*/
 	public void readFile() {
 		file = new ArrayList<String>();
 		try {
@@ -43,6 +59,10 @@ public class FileEditor {
 		}
 	}
 
+	/**
+	* writes the given arraylist to the file
+	* @param ary the arraylist to write to the file
+	*/
 	public void write(ArrayList<String> ary)
 	{
 		try
@@ -61,6 +81,10 @@ public class FileEditor {
 		}
 	}
 
+	/**
+	* gets the files length
+	* @return the size of the array
+	*/
 	public int textSize() {
 		int t = 0;
 		try {
@@ -86,7 +110,6 @@ public class FileEditor {
 
 	/**
 	 * gets the full line at specfied index
-	 *
 	 * @param index the index of the line
 	 * @return the full line in string form
 	 */
@@ -126,6 +149,9 @@ public class FileEditor {
 		}
 	}
 
+	/**
+	* Adds a line to the file
+	*/
 	public void addLine()
 	{
 		System.out.println("What do you want to add?");
@@ -133,6 +159,9 @@ public class FileEditor {
 		write(file);
 	}
 
+	/**
+	* inserts a line to the specified line
+	*/
 	public void insertLine()
 	{
 		System.out.println("What do you want to insert?");
@@ -148,6 +177,11 @@ public class FileEditor {
 		}
 	}
 
+	/**
+	* Checks if the String given is a number
+	* @param str the string to check
+	* @return true if string is a number
+	*/
 	public boolean isNumber(String str)
 	{
 		boolean result = false;
