@@ -188,7 +188,8 @@ public class Script
     }
 
     /**
-     *Gets the properties if the current line
+     *Gets the properties of the selected line
+     * @param k the index of the line
      *@return the array of properties
      */
     public String[] properties(int k)
@@ -254,7 +255,6 @@ public class Script
 
     /**
      *Gets the properties on the line specified
-     *@param k the line to look at
      *@return the properties of the line
      */
     public String[] properties()
