@@ -179,6 +179,10 @@ public class AdvancedPlanner
         }
     }
 
+    /**
+    *
+    *
+    */
     public static void fixScript(String[] props, String[] objs)
     {
         System.out.println("What is the path to change?");

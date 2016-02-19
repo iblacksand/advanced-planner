@@ -498,37 +498,13 @@ public class Script
      */
     public boolean isNumber(String str)
     {
-        boolean result = true;
-        for(int i = 0; i < str.length(); i++)
-        {
-            switch(str.substring(i,i+1))
-            {
-                case "1":
-                break;
-                case "2":
-                break;
-                case "3":
-                break;
-                case "4":
-                break;
-                case "5":
-                break;
-                case "6":
-                break;
-                case "7":
-                break;
-                case "8":
-                break;
-                case "9":
-                break;
-                case "0":
-                break;
-                default:
-                result = false;
-                break;
-            }
-        }
-
+	boolean result = true;
+	try{
+		int test = Integer.parseInt(str);
+	}
+	catch(Exception e){
+		result = false;
+	}
         return result;
     }
 }
