@@ -34,6 +34,7 @@ __Will be constanly updated with additions/completions__
 - [ ] Get all of the __base__ commands implemented
 - [x] Make the program able to interpret the code (__Obtained February 1st__)
 - [ ] Test for all possible errors
+- [ ] __Get the file editor to work for basic functions__ 
 - [ ] Write 5 journal entries
 
 ### March 15
