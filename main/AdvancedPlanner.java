@@ -3,7 +3,6 @@ package main;
 import file.Script;
 import file.FileEditor;
 import java.util.Scanner;
-// import process builder
 
 /**
  *the base of the advanced planner
@@ -15,6 +14,7 @@ public class AdvancedPlanner
     private static int failures;
     private static Script file;
     private static Scanner in = new Scanner(System.in);
+
     /**
      *the main method
      *@param args arguments (not used)
@@ -53,7 +53,6 @@ public class AdvancedPlanner
     {
         file.toLine(file.currentLine() + 2);
         int startLine = file.currentLine();
-
         int loopEnd = startLine;
         for(int i = startLine; i < file.length(); i++)
         {
@@ -105,7 +104,7 @@ public class AdvancedPlanner
      */
     public static void runCommand(int k)
     {
-        if(!file.isLastLine())
+        if(k < file.length())
         {
             String command = file.command(k);
             String[] props = file.properties(k);
@@ -125,10 +124,11 @@ public class AdvancedPlanner
                 break;
             }
         }
+        else failures++;
     }
 
     /**
-     * runs a program(broken)
+     * runs a program
      * @param props the properties of the program
      * @param objs the name of the program
      */

@@ -1,11 +1,8 @@
 package file;
 
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.jar.Pack200;
 
 /**
 * FileEditor class
