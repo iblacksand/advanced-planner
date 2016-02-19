@@ -26,11 +26,13 @@ This program is an easy solution to having to time yourself, while also providin
 
 This is my timeline for the project
 
+__Bolded Text is modifications to timeline__
+
 __Will be constanly updated with additions/completions__
 
 ### February 26
-- [ ] Get all of the commands implemented
-- [x] Make the program able to interpret the code
+- [ ] Get all of the __base__ commands implemented
+- [x] Make the program able to interpret the code (__Obtained February 1st__)
 - [ ] Test for all possible errors
 - [ ] Write 5 journal entries
 
