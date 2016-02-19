@@ -33,3 +33,6 @@ During this week I finally got to AdvancedPlanner to run a program. I also start
 
 ---
  Word Count : [160](http://i.imgur.com/uPOKlmi.png)
+
+## Journal Entry for the week of Feb 15 - Feb 19
+During this week I changed the deliverables, which are highlighted in bold in the proposal. I also added support for case-sensitive inputs, by making it not make everything to lower case. I also added the FileEditor.java which will allow on the fly script editing. I also started to work on the loop class, since it was running forever into negative infinity. I made the FileEditor be able to insert, set or add a line at any index, as long as it won't cause any errors. I have starte d to think about how the compiler will work, with booleans to keep track of errors. I also started to create a new class called CompileError which will keep track of all of the errors in the compiler with the linenumber that is is on.
