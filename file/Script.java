@@ -52,7 +52,7 @@ public class Script
             for(int i = 0; i < textSize(); i++)
             {
                 line = br.readLine();
-                if(line != null) a.add(line.toLowerCase().trim());
+                if(line != null) a.add(line.trim());
                 else break;
             }
             br.close();
@@ -217,7 +217,7 @@ public class Script
             for(int i = 0; i < a.size(); i++)
             {
                 String str = a.get(i);
-                switch(str)
+                switch(str.toLowerCase())
                 {
                     case "fragile":
                     a.set(i,"f");
@@ -282,7 +282,7 @@ public class Script
             for(int i = 0; i < a.size(); i++)
             {
                 String str = a.get(i);
-                switch(str)
+                switch(str.toLowerCase())
                 {
                     case "fragile":
                     a.set(i,"f");
