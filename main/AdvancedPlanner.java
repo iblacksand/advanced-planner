@@ -180,9 +180,10 @@ public class AdvancedPlanner
     }
 
     /**
-    *
-    *
-    */
+     * allows for editing of the specified script
+     * @param props the properties of the command
+     * @param objs the object of the command 
+     */
     public static void fixScript(String[] props, String[] objs)
     {
         System.out.println("What is the path to change?");
