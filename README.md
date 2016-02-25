@@ -7,3 +7,7 @@ Open [__Development-Journal.md__](https://github.com/iblacksand/advanced-planner
 An example script is located in **example.sc**
 
 Open [**Example.sc**](https://github.com/iblacksand/advanced-planner/blob/master/example.sc)
+
+View the deliverables in **DELIVERABLES.MD**
+
+Open [**DELIVERABLES.MD**](https://github.com/iblacksand/advanced-planner/blob/master/DELIVERABLES.md)
