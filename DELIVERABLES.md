@@ -2,7 +2,7 @@
 
 
 Dates:
-[February 26](##Deliverables for February 26)
+[February 26](#deliverables-for-february-26)
 
 ##Deliverables for February 26
 ###From [FileEditor.java](https://github.com/iblacksand/advanced-planner/blob/master/file/FileEditor.java)
