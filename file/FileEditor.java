@@ -189,7 +189,7 @@ public class FileEditor {
 		}
 		catch (Exception e)
 		{
-
+			result = false;
 		}
 		return result;
 	}
