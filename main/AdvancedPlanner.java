@@ -208,5 +208,11 @@ public class AdvancedPlanner
         }
         return full;
     }
-}
 
+	/**
+	* adds a failure if needed
+	*/
+    public static void addFailure(){
+    	failures++;
+	}
+}

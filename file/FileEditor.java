@@ -49,7 +49,7 @@ public class FileEditor {
 			r.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("File not Found : " + path);
-			System.exit(1);
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.exit(1);
