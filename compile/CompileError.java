@@ -15,7 +15,7 @@ public class CompileError{
 	* @param errorMessage the error message associated with the error
 	*/
 	public CompileError(int lineNumber, String errorMessage){
-		this.lineNume = lineNumber;
+		this.lineNum = lineNumber;
 		this.errorMessage = errorMessage;
 	}
 	
