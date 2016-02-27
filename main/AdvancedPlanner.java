@@ -21,10 +21,6 @@ public class AdvancedPlanner
      */
     public static void main(String[] args) {
         file = new Script(in.nextLine());
-        if(args.length > 0)
-        {
-            setPath(args[0]);
-        }
         failures = 0;
         System.out.println("hello");
         boolean exit = false;
@@ -60,12 +56,15 @@ public class AdvancedPlanner
             if(str.equals("}")) break;
             else loopEnd++;
         }
+        System.out.println(startLine);
+        System.out.println(loopEnd);
         System.out.println(Integer.parseInt(object[1]));
         for(int i = 0; i < Integer.parseInt(object[1]); i++)
         {
-            for(int p = startLine; i < loopEnd; p++)
+            for(int p = startLine; p < loopEnd; p++)
             {
-                runCommand(p);
+                System.out.println(p - 1);
+                runCommand(p - 1);
             }
         }
         file.toLine(loopEnd + 1);
@@ -104,9 +103,10 @@ public class AdvancedPlanner
      */
     public static void runCommand(int k)
     {
-        if(k < file.length())
+        if(k < file.length() && k > 0)
         {
             String command = file.command(k);
+            System.out.println(command);
             String[] props = file.properties(k);
             String[] object = file.object(k);
             switch(command)

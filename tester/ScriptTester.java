@@ -16,7 +16,7 @@ public class ScriptTester
     public static void main(String[] args)
     {
         System.out.println("hello");
-        standard("example.sc");
+        standard("example.txt");
     }
 
     /**

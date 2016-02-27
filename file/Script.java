@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  *This is the file for reading and interpreting the file
  *@author John Elizarraras
- *@version Febuary 2 2016
+ *@version February 2 2016
  */
 public class Script
 {
@@ -165,23 +165,30 @@ public class Script
     @SuppressWarnings("unused")
 	public String command(int k)
     {
-    	if(k < length())
+    	if(k < length() && k > -1)
     	{
-        String line = file[k];
-        String command = "";
-        for(int i = 0; i < line.length(); i++)
-        {
-            String str = line.substring(i,i+1);
-            if(!(str.equals(" ") || str.equals(".")))
+            String command = "";
+            try
             {
-                command += str;
+                String line = file[k];
+                for(int i = 0; i < line.length(); i++)
+                {
+                    String str = line.substring(i,i+1);
+                    if(!(str.equals(" ") || str.equals(".")))
+                    {
+                        command += str;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
             }
-            else
+            catch(Exception e)
             {
-                break;
+
             }
             return command;
-        }
     	}
     	return "";
 
@@ -194,7 +201,7 @@ public class Script
      */
     public String[] properties(int k)
     {
-        if(k < length())
+        if(k < length() && k > -1)
         {
             String line = file[k];
             ArrayList<String> a = new ArrayList<String>();
@@ -380,48 +387,48 @@ public class Script
      */
     public String[] object(int k)
     {
-    	if(k < length())
+    	if(k < length() &&  k > -1)
     	{
-        ArrayList<String> a = new ArrayList<String>();
-        String line = file[k];
-        int start = 0;
-        boolean startFound = false;
-        for(int i = 0; i < line.length(); i++)
-        {
-            if(line.substring(i,i+1).equals(" "))
+            ArrayList<String> a = new ArrayList<String>();
+            String line = file[k];
+            int start = 0;
+            boolean startFound = false;
+            for(int i = 0; i < line.length(); i++)
             {
-                start = i;
-                startFound = true;
-                break;
+                if(line.substring(i,i+1).equals(" "))
+                {
+                    start = i;
+                    startFound = true;
+                    break;
+                }
             }
-        }
 
-        String str = line.substring(start + 1);
-        String build = "";
-        int lastCut = 0;
-        for(int i = 0; i < str.length(); i++)
-        {
-            String c = str.substring(i,i+1);
-            if(c.equals(" "))
+            String str = line.substring(start + 1);
+            String build = "";
+            int lastCut = 0;
+            for(int i = 0; i < str.length(); i++)
             {
-                a.add(build.trim());
-                build = "";
-                lastCut = i;
+                String c = str.substring(i,i+1);
+                if(c.equals(" "))
+                {
+                    a.add(build.trim());
+                    build = "";
+                    lastCut = i;
+                }
+                else build += c.trim();
             }
-            else build += c.trim();
+            a.add(str.substring(lastCut).trim());
+            String[] objects = new String[a.size()];
+            for(int i = 0; i < objects.length; i++)
+            {
+                objects[i] = a.get(i);
+            }
+            if(!startFound)
+            {
+                objects = new String[0];
+            }
+            return objects;
         }
-        a.add(str.substring(lastCut).trim());
-        String[] objects = new String[a.size()];
-        for(int i = 0; i < objects.length; i++)
-        {
-            objects[i] = a.get(i);
-        }
-        if(!startFound)
-        {
-            objects = new String[0];
-        }
-        return objects;
-    	}
     	else
     	{
     		return new String[0];
