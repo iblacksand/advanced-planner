@@ -39,3 +39,9 @@ During this week I changed the deliverables, which are highlighted in bold in th
 
 ---
  Word Count : [157](http://i.imgur.com/o6kbG9Z.png)
+
+## Journal Entry for the week of Feb 20 - Feb 28
+During this week I was able to complete all of the deliverables. The biggest accomplishment for this week, for me was the loop() method in [AdvancedPlanner.java](https://github.com/iblacksand/advanced-planner/blob/master/main/AdvancedPlanner.java). The only thing that needs to be worked on the loop method is to have the pauses specified which was not part of the deliverable, since it was only for base commands. I will be adding a TUTORIAL.md to help explain how to use it (since the readme is more for links, apparently) but it shouldn't be too hard if you look in the example.txt. Another part that I did this week was test for exceptions and I couldn't find any. I also created [DELIVERABLES.md](https://github.com/iblacksand/advanced-planner/blob/master/DELIVERABLES.md) which will help keep track of all of the deliverables that I completed. All of the Javadoc has been created in [/doc](https://github.com/iblacksand/advanced-planner/tree/master/doc) if you want to see what each method does. Overall this week has been productive and completes everything that was asked.
+
+---
+ Word Count : [153](http://i.imgur.com/vrvm57A.png)

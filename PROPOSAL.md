@@ -26,16 +26,18 @@ This program is an easy solution to having to time yourself, while also providin
 
 This is my timeline for the project
 
+You can look at [DELIVERABLES.md](https://github.com/iblacksand/advanced-planner/blob/master/DELIVERABLES.md) to see the progress of each deliverable
+
 __Bolded Text is modifications to timeline__
 
 __Will be constanly updated with additions/completions__
 
 ### February 26
-- [ ] Get all of the __base__ commands implemented
+- [x] Get all of the __base__ commands implemented
 - [x] Make the program able to interpret the code (__Obtained February 1st__)
-- [ ] Test for all possible errors
-- [ ] __Get the file editor to work for basic functions__ 
-- [ ] Write 5 journal entries
+- [x] Test for all possible errors
+- [x] __Get the file editor to work for basic functions__ 
+- [x] Write 5 journal entries
 
 ### March 15
 - [ ] Start on the GUI
