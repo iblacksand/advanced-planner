@@ -1,7 +1,7 @@
 #Development Journal
 John Elizarraras
 
-[Latest Journal Entry](#Journal Entry for the week of Feb 20 - Feb 28)
+[Latest Journal Entry](#journal-entry-for-the-week-of-feb-20---feb-28)
 
 ## Journal entry for the week of Jan 22 - 29
 
