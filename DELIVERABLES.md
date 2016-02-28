@@ -2,6 +2,7 @@
 
 
 Dates:
+
 [February 26](#deliverables-for-february-26)
 
 ##Deliverables for February 26
@@ -136,10 +137,107 @@ This will run a cmd command or run a program
 public static void display(String[] props, String[] objs)
 {
 for (String obj : objs) {
-System.out.print(obj);
+System.out.println(obj);
 }
 }
 ```
 
 This will display the text given. This will change when the gui is implemented
 
+```java
+/**
+     *the method that loops the code for the specified amount
+     *@param props the properties of the loop
+     *@param object array holding the information of the loop
+     */
+    public static void loop(String[] props,String[] object)
+    {
+        file.toLine(file.currentLine() + 2);
+        int startLine = file.currentLine();
+        int loopEnd = startLine;
+        for(int i = startLine; i < file.length(); i++)
+        {
+            String str = file.fullLine();
+            if(str.equals("}")) break;
+            else loopEnd++;
+        }
+        for(int i = 0; i < Integer.parseInt(object[1]); i++)
+        {
+            for(int p = startLine; p < loopEnd; p++)
+            {
+                runCommand(p - 1);
+            }
+        }
+        file.toLine(loopEnd + 1);
+    }
+```
+
+This will loop the code for the specified amount. This is a basic version and the time between is not implemented.
+
+##From [/tester](https://github.com/iblacksand/advanced-planner/tree/master/tester)
+
+```java
+package tester;
+
+import file.FileEditor;
+/**
+ * Created by John Elizarraras on 2/27/2016.
+ */
+public class FileEditorTester {
+
+    /**
+     * tests the file editor class
+     * @param args not used
+     */
+    public static void main(String[] args){
+        String path = "example.txt";
+        FileEditor fe = new FileEditor(path);
+        fe.addLine();
+        fe.insertLine();
+        fe.addLine();
+    }
+}
+```
+This tests the FileEditor for everything that is is capable of
+
+```java
+public static void standard(String path)
+    {
+        Script file = new Script(path);
+        for(int i = 0; i < file.fileSize(); i++)
+        {
+            System.out.println("starting test:");
+            String c = file.command();
+            String[] p = file.properties();
+            String[] o = file.object();
+            System.out.println(c);
+            for (String aP : p) {
+                System.out.println(aP);
+            }
+            for (String anO : o) {
+                System.out.println(anO);
+            }
+            file.nextLine();
+        }
+    }
+```
+
+This does a standard test for the script.java
+
+```java
+package tester;
+import main.AdvancedPlanner;
+public class CommandTest {
+    /**
+     * does a test of the example.sc file
+	 * @param args not used
+     */
+	public static void main(String[] args)
+	{
+		String[] a = {"example.sc"};
+		 AdvancedPlanner.main(a);
+	}
+}
+```
+
+This will run the example.txt to test different commands
