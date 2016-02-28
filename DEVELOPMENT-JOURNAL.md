@@ -1,5 +1,8 @@
 #Development Journal
 John Elizarraras
+
+[Latest Journal Entry](#Journal Entry for the week of Feb 20 - Feb 28)
+
 ## Journal entry for the week of Jan 22 - 29
 
  During this week I finished the proposal file and started to think on ideas for commands. I thought about adding 'ask' and 'answer' subsets of the display function of which can be used as following:
