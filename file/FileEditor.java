@@ -106,7 +106,7 @@ public class FileEditor {
 	}
 
 	/**
-	 * gets the full line at specfied index
+	 * gets the full line at specified index
 	 * @param index the index of the line
 	 * @return the full line in string form
 	 */
@@ -151,6 +151,7 @@ public class FileEditor {
 	*/
 	public void addLine()
 	{
+		System.out.println(toString());
 		System.out.println("What do you want to add?");
 		file.add(in.nextLine());
 		write(file);
@@ -161,12 +162,14 @@ public class FileEditor {
 	*/
 	public void insertLine()
 	{
+		System.out.println(toString());
 		System.out.println("What do you want to insert?");
 		String input = in.nextLine();
 		System.out.println("Where do you want to insert");
 		String line = in.nextLine();
 		if(!isNumber(line)){
 			System.out.println("That is not a number!");
+			insertLine();
 		}
 		else{
 			file.add(Integer.parseInt(line), input);
@@ -192,5 +195,13 @@ public class FileEditor {
 			result = false;
 		}
 		return result;
+	}
+	
+	public String toString(){
+		String str = "";
+		for(int i = 0; i < file.size(); i++){
+			str += i + ": " + file.get(i) + "\n";
+		}
+		return str;
 	}
 }
