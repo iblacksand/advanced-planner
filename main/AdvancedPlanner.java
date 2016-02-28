@@ -56,14 +56,10 @@ public class AdvancedPlanner
             if(str.equals("}")) break;
             else loopEnd++;
         }
-        System.out.println(startLine);
-        System.out.println(loopEnd);
-        System.out.println(Integer.parseInt(object[1]));
         for(int i = 0; i < Integer.parseInt(object[1]); i++)
         {
             for(int p = startLine; p < loopEnd; p++)
             {
-                System.out.println(p - 1);
                 runCommand(p - 1);
             }
         }
@@ -106,7 +102,6 @@ public class AdvancedPlanner
         if(k < file.length() && k > 0)
         {
             String command = file.command(k);
-            System.out.println(command);
             String[] props = file.properties(k);
             String[] object = file.object(k);
             switch(command)
@@ -175,7 +170,7 @@ public class AdvancedPlanner
     public static void display(String[] props, String[] objs)
     {
         for (String obj : objs) {
-            System.out.print(obj);
+            System.out.println(obj);
         }
     }
 
@@ -213,6 +208,6 @@ public class AdvancedPlanner
 	* adds a failure if needed
 	*/
     public static void addFailure(){
-    	failures++;
+        failures++;
 	}
 }
