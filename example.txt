@@ -1,6 +1,7 @@
 loop 5m 5
 {
 display hello
+run chrome
 display goodbye
 }
 

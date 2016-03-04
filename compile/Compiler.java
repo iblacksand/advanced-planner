@@ -1,14 +1,15 @@
 package compile;
 
+import file.Script;
 import java.io.*;
 import java.util.ArrayList;
- /**
+/**
  * Created by John Elizarraras on 2/28/2016.
  */
 public class Compiler {
 
     ArrayList<CompileError> errors = new ArrayList<>();
-    ArrayList<String> file = new ArrayList<>();
+    Script file;
     String path;
 
     /**
@@ -16,6 +17,8 @@ public class Compiler {
      */
     public Compiler(){
         path = "main.txt";
+        file = new Script(path);
+        compile();
     }
 
     /**
@@ -35,51 +38,93 @@ public class Compiler {
         errors.add(new CompileError(line,errorMessage));
     }
 
-    /**
-     * reads the file and adds it to an arraylist
-     */
-    public void readFile() {
-        file = new ArrayList<String>();
-        try {
-            File f = new File(path);
-            BufferedReader r = new BufferedReader(new FileReader(f));
-            for (int i = 0; i < textSize(); i++) {
-                file.add(r.readLine());
+    private void compile(){
+        for(int i = 0; i < file.length(); i++){
+            String line = file.fullLine();
+            if(isCommand(file.command())){
+	    	switch(file.command().toLowerCase()){
+			case "run":
+			checkRun(i);
+			break;
+			case "loop":
+			checkLoop(i);
+			break;
+			case "display":
+			checkDisplay(i);
+			break;
+			default:
+			addError("Not a command");
+			break;
+		}
             }
-            r.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not Found : " + path);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(1);
+            else{
+                addError(i, "This is not a command");
+            }
+            file.nextLine();
         }
     }
 
-    /**
-     * gets the files length
-     * @return the size of the array
-     */
-    public int textSize() {
-        int t = 0;
-        try {
-            FileReader fr = new FileReader(new File(path));
-            BufferedReader textReader = new BufferedReader(fr);
-
-            for (int i = 0; i < 1000; i++) {
-                String text = textReader.readLine();
-                if (text == null
-                        || text.trim().equals("")) {
-                    textReader.close();
-                    t = i;
-                    break;
-                }
-
-            }
-            textReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+    private boolean isCommand(String posCommand){
+        boolean result = true;
+        switch(posCommand.toLowerCase()){
+            case "loop":
+            break;
+            case "run":
+            break;
+            case "display":
+            break;
+            default:
+            result = false;
+            break;
         }
-        return t;
+        return result;
     }
+
+    public void checkRun(){
+    }
+    
+    public void checkLoop(int index){
+	String[] vars = file.objects(i);
+	if(vars.length < 2) addError(index, "Not enough modifiers");
+	else if(vars.length > 2) addError(index, "Too many modifiers");
+	else{
+		if(isNumber(vars[0].substring(0, vars[0].length()))){
+		}
+		else{
+			addError(index, "Time is not a number");
+		}
+		switch(vars[0].substring(vars[0].length() - 1)){
+			case "s":
+			break;
+			case "m":
+			break;
+			case "h":
+			break;
+			case "d":
+			break;
+			default:
+			new 
+					
+	}
+    }
+
+        /**
+	* Checks if the String given is a number
+	* @param str the string to check
+	* @return true if string is a number
+	*/
+	public boolean isNumber(String str)
+	{
+		boolean result = false;
+		try
+		{
+			Integer.parseInt(str);
+			result = true;
+		}
+		catch (Exception e)
+		{
+			result = false;
+		}
+		return result;
+	}
 }
