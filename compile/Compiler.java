@@ -150,7 +150,7 @@ public class Compiler {
                 else if(file.fullLine(i).equals("}")) needsError = false;
                 lastCheck = i;
             }
-            if(needsError) addError(lastCheck, "No closing '['");
+            if(needsError) addError(lastCheck, "No closing '}'");
         }
         catch(IndexOutOfBoundsException e){
             addError(file.length(), "Loop doesn't open/close");
