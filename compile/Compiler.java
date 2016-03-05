@@ -40,6 +40,9 @@ public class Compiler {
         errors.add(new CompileError(line,errorMessage));
     }
 
+    /**
+     * compiles all of the file
+     */
     private void compile(){
         for(int i = 0; i < file.length(); i++){
             String line = file.fullLine();
@@ -70,6 +73,11 @@ public class Compiler {
         }
     }
 
+    /**
+     * checks if the string is a command
+     * @param posCommand the possible command
+     * @return true if the string is an accepted command
+     */
     private boolean isCommand(String posCommand){
         boolean result = true;
         switch(posCommand.toLowerCase()){
@@ -90,9 +98,17 @@ public class Compiler {
         return result;
     }
 
+    /**
+     * checks if the run command is in the right format
+     * @param index the index of the command
+     */
     public void checkRun(int index){
     }
-    
+
+    /**
+     * checks if the loop is in the correct format
+     * @param index the index of the loop command
+     */
     public void checkLoop(int index){
 	String[] vars = file.object(index);
 	if(vars.length < 2) addError(index, "Not enough modifiers");
@@ -142,6 +158,10 @@ public class Compiler {
 	}
     }
 
+    /**
+     * checks if the display command is in the right format
+     * @param index the index of the run command
+     */
 	private void checkDisplay(int index){
 
 	}
@@ -165,10 +185,17 @@ public class Compiler {
 		return result;
 	}
 
+    /**
+     * gets the number of errors
+     * @return the amount of errors
+     */
 	public int errors(){
 		return errors.size();
 	}
 
+    /**
+     * lists the errors in the file
+     */
 	public void listErrors(){
 		for (CompileError error : errors) {
 			System.out.println(error);

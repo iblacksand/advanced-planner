@@ -35,6 +35,10 @@ public class CompileError{
 		return errorMessage;
 	}
 
+	/**
+	 * makes a string with the line and error message
+	 * @return the error message with the line
+     */
 	public String toString(){
 		return "Error on line " + lineNum  + ": " + errorMessage;
 	}
