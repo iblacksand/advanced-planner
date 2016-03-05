@@ -3,6 +3,8 @@ package main;
 import file.Script;
 import file.FileEditor;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *the base of the advanced planner
@@ -47,6 +49,7 @@ public class AdvancedPlanner
      */
     public static void loop(String[] props,String[] object)
     {
+        Timer timer = new Timer();
         file.toLine(file.currentLine() + 2);
         int startLine = file.currentLine();
         int loopEnd = startLine;
@@ -56,12 +59,20 @@ public class AdvancedPlanner
             if(str.equals("}")) break;
             else loopEnd++;
         }
+        final int loope = loopEnd;
         for(int i = 0; i < Integer.parseInt(object[1]); i++)
         {
-            for(int p = startLine; p < loopEnd; p++)
-            {
-                runCommand(p - 1);
-            }
+                    for(int p = startLine; p < loope; p++)
+                    {
+                        final int temp = p;
+                        timer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                runCommand(temp - 1);
+                            }
+                        }, convertTime(object[0]));
+
+                    }
         }
         file.toLine(loopEnd + 1);
     }
@@ -210,4 +221,50 @@ public class AdvancedPlanner
     public static void addFailure(){
         failures++;
 	}
+
+    /**
+     * converts the string input into milliseconds
+     * @param input the string to convert
+     * @return the string in millisecond form or zero if input is not in correct format
+     */
+    public static int convertTime(String input){
+        if(isNumber(input.substring(0,input.length() -1))) {
+            int retVal = Integer.parseInt(input.substring(0,input.length() -1));
+            switch (input.substring(input.length() - 1).toLowerCase().trim()) {
+                case "m":
+                    retVal *= 60000;
+                    break;
+                case "h":
+                    retVal *= 360000;
+                    break;
+                case "s":
+                    retVal *= 1000;
+                    break;
+                default:
+                    retVal = 0;
+                    break;
+            }
+            return retVal;
+        }
+        else{
+            return 0;
+        }
+    }
+
+    /**
+     * checks if the string is an int
+     * @param str the possible number to check
+     * @return true if inputted string is a int.
+     */
+    private static boolean isNumber(String str){
+        boolean result = false;
+        try{
+            Integer.parseInt(str);
+            result = true;
+        }
+        catch(Exception e){
+            result = false;
+        }
+        return result;
+    }
 }
