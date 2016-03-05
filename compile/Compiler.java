@@ -27,6 +27,8 @@ public class Compiler {
      */
     public Compiler(String path){
         this.path = path;
+        file = new Script(path);
+        compile();
     }
 
     /**
@@ -43,18 +45,22 @@ public class Compiler {
             String line = file.fullLine();
             if(isCommand(file.command())){
 	    	switch(file.command().toLowerCase()){
-			case "run":
-			checkRun(i);
-			break;
-			case "loop":
-			checkLoop(i);
-			break;
-			case "display":
-			checkDisplay(i);
-			break;
-			default:
-			addError("Not a command");
-			break;
+			    case "run":
+			        checkRun(i);
+			        break;
+			    case "loop":
+			        checkLoop(i);
+			        break;
+			    case "display":
+			        checkDisplay(i);
+			        break;
+                case "{":
+                    break;
+                case "}":
+                    break;
+			    default:
+			        addError(i,"Not a command");
+			        break;
 		}
             }
             else{
@@ -73,6 +79,10 @@ public class Compiler {
             break;
             case "display":
             break;
+            case "{":
+                break;
+            case "}":
+                break;
             default:
             result = false;
             break;
@@ -80,35 +90,63 @@ public class Compiler {
         return result;
     }
 
-    public void checkRun(){
+    public void checkRun(int index){
     }
     
     public void checkLoop(int index){
-	String[] vars = file.objects(i);
+	String[] vars = file.object(index);
 	if(vars.length < 2) addError(index, "Not enough modifiers");
 	else if(vars.length > 2) addError(index, "Too many modifiers");
 	else{
-		if(isNumber(vars[0].substring(0, vars[0].length()))){
+		if(isNumber(vars[0].substring(0, vars[0].length() - 1))){
 		}
 		else{
 			addError(index, "Time is not a number");
 		}
-		switch(vars[0].substring(vars[0].length() - 1)){
+		switch(vars[0].substring(vars[0].length() - 1)) {
 			case "s":
-			break;
+				break;
 			case "m":
-			break;
+				break;
 			case "h":
-			break;
+				break;
 			case "d":
-			break;
+				break;
 			default:
-			new 
-					
+				addError(index, "Not an acceptable time format.");
+				break;
+		}
+
+		if(!isNumber(vars[1])) addError(index, "Second modifier is not a number");
+		else{
+			if(Integer.parseInt(vars[1]) < 0) addError(index, "Second modifier is negative");
+		}
+        try {
+            if (!file.fullLine(index + 1).equals("{")) addError(index + 1, "Is not a '{'");
+
+            boolean needsError = true;
+            int lastCheck = index;
+            for (int i = index +  2; i < file.length(); i++){
+                if(file.fullLine(i).equals("{")){
+                    addError(i, "Another '{' before a '}'");
+                    break;
+                }
+                else if(file.fullLine(i).equals("}")) needsError = false;
+                lastCheck = i;
+            }
+            if(needsError) addError(lastCheck, "No closing '['");
+        }
+        catch(IndexOutOfBoundsException e){
+            addError(file.length(), "Loop doesn't open/close");
+        }
 	}
     }
 
-        /**
+	private void checkDisplay(int index){
+
+	}
+
+	/**
 	* Checks if the String given is a number
 	* @param str the string to check
 	* @return true if string is a number
@@ -123,8 +161,17 @@ public class Compiler {
 		}
 		catch (Exception e)
 		{
-			result = false;
 		}
 		return result;
+	}
+
+	public int errors(){
+		return errors.size();
+	}
+
+	public void listErrors(){
+		for (CompileError error : errors) {
+			System.out.println(error);
+		}
 	}
 }

@@ -34,4 +34,8 @@ public class CompileError{
 	public String errorMessage(){
 		return errorMessage;
 	}
+
+	public String toString(){
+		return "Error on line " + lineNum  + ": " + errorMessage;
+	}
 }
