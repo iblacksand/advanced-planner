@@ -1,7 +1,6 @@
 package compile;
 
 import file.Script;
-import java.io.*;
 import java.util.ArrayList;
 /**
  * Created by John Elizarraras on 2/28/2016.
@@ -141,16 +140,14 @@ public class Compiler {
             if (!file.fullLine(index + 1).equals("{")) addError(index + 1, "Is not a '{'");
 
             boolean needsError = true;
-            int lastCheck = index;
             for (int i = index +  2; i < file.length(); i++){
                 if(file.fullLine(i).equals("{")){
                     addError(i, "Another '{' before a '}'");
                     break;
                 }
                 else if(file.fullLine(i).equals("}")) needsError = false;
-                lastCheck = i;
             }
-            if(needsError) addError(lastCheck, "No closing '}'");
+            if(needsError) addError(file.length(), "No closing '}'");
         }
         catch(IndexOutOfBoundsException e){
             addError(file.length(), "Loop doesn't open/close");
