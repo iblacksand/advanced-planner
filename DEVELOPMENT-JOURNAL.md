@@ -1,7 +1,7 @@
 #Development Journal
 John Elizarraras
 
-[Latest Journal Entry](#journal-entry-for-the-week-of-feb-20---feb-28)
+[Latest Journal Entry](#journal-entry-for-the-week-of-feb-29---Mar-6)
 
 ## Journal entry for the week of Jan 22 - 29
 
@@ -48,3 +48,9 @@ During this week I was able to complete all of the deliverables. The biggest acc
 
 ---
  Word Count : [154](http://i.imgur.com/vrvm57A.png)
+ 
+## Journal Entry for the week of Feb 29 - Mar 6
+During this week I added a toString method to [CompileError.java](https://github.com/iblacksand/advanced-planner/blob/master/compile/CompileError.java) to show the line number and the error message. I also finished [Compiler.java](https://github.com/iblacksand/advanced-planner/blob/master/compile/Compiler.java), in the respect that it can compile the run, start and loop commands I also tried to get loop to run correctly but I can only make it pause once. I also started to work on getting the basics of the gui down. I was able to make a window with a button and a label in [GuiWindow.java](https://github.com/iblacksand/advanced-planner/blob/master/gui/GuiWindow.java). I also created a popup window in [GuiPopup](https://github.com/iblacksand/advanced-planner/blob/master/gui/GuiPopup.java) in hopes for when the main window closed it would popup with a simple JLabel, but it won't show unless I use the tester from [GuiPopupTester.java](https://github.com/iblacksand/advanced-planner/blob/master/tester/GuiPopupTester.java). This is what I want to fix this week since it is the last part of these deliverables. I also plan to get the loop to pause for the correct amount of time because it seems simple. The last part of the thing I need to do is to test the compiler to make sure that errors don't go past it.
+
+---
+ Word Count : [176](http://i.imgur.com/ZdTUlUh.png)

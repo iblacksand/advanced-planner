@@ -20,9 +20,9 @@ public class GuiPopup extends JFrame{
                 GuiPopup.this.dispose();
             }
         });
-        final JLabel text = new JLabel();
-        text.setText(input);
-        add(text);
+        final JLabel test  =new JLabel();
+        test.setText(input);
+        add(test);
         setLayout(new FlowLayout());
         pack();
     }

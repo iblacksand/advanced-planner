@@ -25,17 +25,22 @@ public class GuiWindow extends JFrame{
         });
 
         final JLabel test  =new JLabel();
-        test.setText("exiting");
+        test.setText("Hello");
         add(test);
         final JButton btn = new JButton("Exit");
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                //JOptionPane.showMessageDialog(GuiWindow.this, "Exiting", "Advanced Panel", JPanel.UNDEFINED_CONDITION);
-                GuiPopup pop = new GuiPopup("Advanced Planner", "Exiting");
-                pop.setVisible(true);
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        final GuiPopup window = new GuiPopup("Advanced Planner", "Good Bye World");
+                        window.setVisible(true);
+                    }
+                });
                 try{
-                    Thread.sleep(500);
+                    Thread.sleep(10000);
                 }
                 catch(Exception ex){
 
