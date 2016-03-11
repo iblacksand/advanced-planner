@@ -54,3 +54,6 @@ During this week I added a toString method to [CompileError.java](https://github
 
 ---
  Word Count : [176](http://i.imgur.com/ZdTUlUh.png)
+
+## Journal Entry for the week of Mar 7 - Mar 13
+During this week I started to put everything into the deliverables and I am trying to start making display make a window popup with the specified text with you use the display command. I will also create a file to make it easier for the gui to create entries into 
