@@ -1,7 +1,7 @@
 #Development Journal
 John Elizarraras
 
-[Latest Journal Entry](#journal-entry-for-the-week-of-feb-29---mar-6)
+[Latest Journal Entry](#journal-entry-for-the-week-of-mar-7---mar-13)
 
 ## Journal entry for the week of Jan 22 - 29
 
@@ -56,4 +56,7 @@ During this week I added a toString method to [CompileError.java](https://github
  Word Count : [176](http://i.imgur.com/ZdTUlUh.png)
 
 ## Journal Entry for the week of Mar 7 - Mar 13
-During this week I started to put everything into the deliverables and I am trying to start making display make a window popup with the specified text with you use the display command. I will also create a file to make it easier for the gui to create entries into 
+During this week I started to put everything into the deliverables and I am trying to start making display make a window popup with the specified text with you use the display command. I will also create a file to make it easier for the gui to create entries into. I also updated [Proposal.md](https://github.com/iblacksand/advanced-planner/blob/master/PROPOSAL.md) to include all of the changes that were finished. I also updated [DELIVERABLES](https://github.com/iblacksand/advanced-planner/blob/master/DELIVERABLES.md) to show all of the progress that I made. I wasn't able to work too much on the actual gui but I was able to see how swing worked. I also made finsihed all of the development journals for the deliverables. I also created [GuiForm.java](https://github.com/iblacksand/advanced-planner/blob/master/gui/GuiForm.java), which is for testing the way Intellij works in respect to gui's and if there is a way to do it easier than what it is now. 
+
+---
+ Word Count : [139](http://i.imgur.com/aXuskDG.png)

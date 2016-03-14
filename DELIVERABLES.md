@@ -241,3 +241,65 @@ public class CommandTest {
 ```
 
 This will run the example.txt to test different commands
+
+## Deliverables for March 15
+
+### From [Compiler.java](https://github.com/iblacksand/advanced-planner/blob/master/compile/Compiler.java)
+
+```java
+/**
+     * compiles all of the file
+     */
+    private void compile(){
+        for(int i = 0; i < file.length(); i++){
+            String line = file.fullLine();
+            if(isCommand(file.command())){
+	    	switch(file.command().toLowerCase()){
+			    case "run":
+			        checkRun(i);
+			        break;
+			    case "loop":
+			        checkLoop(i);
+			        break;
+			    case "display":
+			        checkDisplay(i);
+			        break;
+                case "{":
+                    break;
+                case "}":
+                    break;
+			    default:
+			        addError(i,"Not a command");
+			        break;
+		}
+            }
+            else{
+                addError(i, "This is not a command");
+            }
+            file.nextLine();
+        }
+    }
+```
+
+This will go through and make sure the commands go through and add errors if needed
+
+### From [GuiWindow.java](https://github.com/iblacksand/advanced-planner/blob/master/gui/GuiWindow.java)
+
+```java
+super("Advanced Planner");
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                GuiWindow.this.setVisible(false);
+                GuiWindow.this.dispose();
+            }
+        });
+
+        final JLabel test  =new JLabel();
+        test.setText("Hello");
+        add(test);
+```
+
+This was used to test how Swing worked and know I think I will be able to work on the actual GUI.

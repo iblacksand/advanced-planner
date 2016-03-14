@@ -40,9 +40,9 @@ __Will be constanly updated with additions/completions__
 - [x] Write 5 journal entries
 
 ### March 15
-- [ ] Start on the GUI
-- [ ] Get the compiler to work on 1/2 of code
-- [ ] Write 4 journal entries
+- [x] Start on the GUI
+- [x] Get the compiler to work on 1/2 of code
+- [x] Write 3 journal entries
 
 ### April 1
 - [ ] Create section of GUI designed to make the script
