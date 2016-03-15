@@ -1,5 +1,0 @@
-loop 5s 5
-{
-display hello
-}
-run notepad
