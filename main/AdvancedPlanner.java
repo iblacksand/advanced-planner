@@ -22,7 +22,7 @@ public class AdvancedPlanner
      *@param args arguments (not used)
      */
     public static void main(String[] args) {
-        file = new Script(in.nextLine());
+        file = new Script(args[0]);
         failures = 0;
         System.out.println("hello");
         boolean exit = false;

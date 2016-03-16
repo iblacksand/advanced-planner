@@ -23,7 +23,8 @@ public class GuiWindow extends JFrame{
                 GuiWindow.this.dispose();
             }
         });
-
+        JTextField textField = new JTextField("Write Code Here");
+        add(textField);
         final JLabel test  =new JLabel();
         test.setText("Hello");
         add(test);
@@ -31,21 +32,9 @@ public class GuiWindow extends JFrame{
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               //JOptionPane.showMessageDialog(GuiWindow.this, "Exiting", "Advanced Panel", JPanel.UNDEFINED_CONDITION);
-                SwingUtilities.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        final GuiPopup window = new GuiPopup("Advanced Planner", "Good Bye World");
-                        window.setVisible(true);
-                    }
-                });
-                try{
-                    Thread.sleep(10000);
-                }
-                catch(Exception ex){
-
-                }
-                System.exit(0);
+               JLabel temp = new JLabel(textField.getText());
+                add(temp);
+                pack();
             }
         });
         setLayout(new FlowLayout());
