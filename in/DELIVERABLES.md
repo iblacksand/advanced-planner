@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html>
-<title>iblacksand</title>
-
-<xmp theme="simplex" style="display:none;">
 #Deliverables
 
 
@@ -310,7 +305,3 @@ super("Advanced Planner");
 ```
 
 This was used to test how Swing worked and know I think I will be able to work on the actual GUI.
-</xmp>
-
-<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
-</html>
