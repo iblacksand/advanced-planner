@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment0.text=\r\n\ starts\ the\ test\r\n\ @param\ args\ the\ arguments\ for\ the\ test\r\n
+comment1.params=
+comment1.target=void\ standard()
+comment1.text=\r\n\ does\ a\ standard\ test\ of\ the\ main.txt\ file\r\n
+comment2.params=path
+comment2.target=void\ standard(java.lang.String)
+comment2.text=\r\n\ does\ a\ standard\ test\ on\ a\ special\ file\r\n\ @param\ path\ the\ path\ of\ the\ file\r\n
+numComments=3
