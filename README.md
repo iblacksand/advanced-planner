@@ -1,4 +1,4 @@
-#[**Class Website**](http://iblacksand.github.io/advanced-planner/)
+#[**Project Website**](http://iblacksand.github.io/advanced-planner/)
 
 Information is located in **Proposal.md**
 
