@@ -1,7 +1,7 @@
 #Development Journal
 John Elizarraras
 
-[Latest Journal Entry](#journal-entry-for-the-week-of-mar-7---mar-13)
+[Latest Journal Entry](#journal-entry-for-the-week-of-mar-14---mar-18)
 
 ## Journal entry for the week of Jan 22 - 29
 
@@ -60,3 +60,10 @@ During this week I started to put everything into the deliverables and I am tryi
 
 ---
  Word Count : [139](http://i.imgur.com/aXuskDG.png)
+ 
+## Journal Entry for the week of Mar 14 - Mar 18
+During this week I started to work on making the program work in a basic way. It "works" in the sense that all of the commands work except for the properties which is a deliverable I will add for the next deliverable cycle. I made the Script just not add properties that don't exist so the compiler won't need to handle it. I also started to make a tutorial that is available on the projects [GitHub Page](http://iblacksand.github.io/advanced-planner/). There is also, I think, more readable versions of this, and all of the other .md files on the website. I will give credit to [Strapdown.js](http://strapdownjs.com/) for creating the tool that I used to create the webpage. The final things left for me to do for the deliverables is to have the alias support and changing the script maker to extend to application, not jFrame to make it look nicer.
+
+---
+
+ Word Count : 153

@@ -38,9 +38,13 @@ public class AdvancedPlannerGui extends JFrame{
                     Compiler compiler = new Compiler(textField.getText());
                     if (compiler.errors() > 0) {
                         add(new JLabel("Error in code!"));
+                        revalidate();
+                        repaint();
                     }
                     else {
                         add(button);
+                        revalidate();
+                        repaint();
                     }
                 }
                 else add(new JLabel("Not a File!"));
@@ -56,10 +60,10 @@ public class AdvancedPlannerGui extends JFrame{
             }
         });
         add(exit);
-        setLayout(new FlowLayout());
+        setLayout(new GridLayout(4,2));
         add(textField);
         add(compile);
-        pack();
+        setSize(900, 200);
         setVisible(true);
     }
 
