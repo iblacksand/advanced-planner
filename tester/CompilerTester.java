@@ -9,5 +9,6 @@ public class CompilerTester {
     public static void main(String[] args){
         Compiler comp = new Compiler("example.txt");
         comp.listErrors();
+        System.out.println(comp.errors());
     }
 }
