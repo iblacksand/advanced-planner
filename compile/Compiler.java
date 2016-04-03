@@ -173,7 +173,7 @@ public class Compiler {
 		boolean result = false;
 		try
 		{
-			Integer.parseInt(str);
+			Double.parseDouble(str);
 			result = true;
 		}
 		catch (Exception e)

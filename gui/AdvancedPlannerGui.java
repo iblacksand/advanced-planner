@@ -2,6 +2,7 @@ package gui;
 
 import compile.Compiler;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.*;
 import javafx.geometry.Insets;
@@ -18,13 +19,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import main.AdvancedPlanner;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.FileReader;
+import java.io.InterruptedIOException;
 import java.util.Optional;
 
 /**
@@ -35,6 +31,7 @@ public class AdvancedPlannerGui extends Application{
 
     public static void main(String[] args){
         launch(args);
+        //addText("This is a test");
     }
 
     public void start(){
@@ -79,9 +76,25 @@ public class AdvancedPlannerGui extends Application{
                     notFile.setVisible(true);
                     button.setVisible(false);
                 }
+                else if(isFile(textField.getText())) notFile.setVisible(false);
                 else if(e > 0){
                     compileError.setVisible(true);
                     button.setVisible(false);
+                }
+                else if(e < 1) compileError.setVisible(false);
+            }
+        });
+        Button edit = new Button("Edit File");
+        edit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String file = textField.getText();
+                if(isFile(file)){
+                    notFile.setVisible(false);
+                    new ScriptMaker(file);
+                }
+                else{
+                    notFile.setVisible(true);
                 }
             }
         });
@@ -102,7 +115,7 @@ public class AdvancedPlannerGui extends Application{
         HBox vbButtons = new HBox();
         vbButtons.setSpacing(10);
         vbButtons.setPadding(new Insets(0,20,10,20));
-        vbButtons.getChildren().addAll(textField, compile, button, exit, notFile, compileError);
+        vbButtons.getChildren().addAll(textField, edit, compile, button, exit, notFile, compileError);
         border.setCenter(vbButtons);
         Scene scene = new Scene(border,800,600);
         primStage.setScene(scene);
@@ -149,4 +162,15 @@ public class AdvancedPlannerGui extends Application{
         }
         return ef;
     }
+
+//    public void addText(String text){
+//        Stage newStage = mainStage;
+//        BorderPane borderPane = new BorderPane();
+//        HBox hBox = new HBox();
+//        hBox.setSpacing(10);
+//        hBox.setPadding(new Insets(0,20,10,20));
+//        Scene sc = newStage.getScene();
+//        sc.get
+//
+//    }
 }

@@ -35,6 +35,21 @@ public class FileEditor {
 		readFile();
 	}
 
+	public void add(String line){
+		file.add(line);
+		write(file);
+	}
+
+	public void editLine(int index, String newLine){
+		file.set(index, newLine);
+		write(file);
+	}
+
+	public void insert(int index, String line){
+		file.add(index, line);
+		write(file);
+	}
+
 	/**
 	* reads the file and adds it to an arraylist
 	*/
