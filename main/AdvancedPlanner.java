@@ -5,6 +5,7 @@ import file.FileEditor;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.*;
 
 /**
  *the base of the advanced planner
@@ -49,7 +50,7 @@ public class AdvancedPlanner
      */
     public static void loop(String[] props,String[] object)
     {
-        Timer timer = new Timer();
+
         file.toLine(file.currentLine() + 2);
         int startLine = file.currentLine();
         int loopEnd = startLine;
@@ -59,22 +60,35 @@ public class AdvancedPlanner
             if(str.equals("}")) break;
             else loopEnd++;
         }
+        final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
         final int loope = loopEnd;
         for(int i = 0; i < Integer.parseInt(object[1]); i++)
         {
                     for(int p = startLine; p < loope; p++)
                     {
-                        final int temp = p;
-                        timer.schedule(new TimerTask() {
-                            @Override
-                            public void run() {
-                                runCommand(temp - 1);
-                            }
-                        }, convertTime(object[0]));
+//                        Timer timer = new Timer();
+                          final int temp = p;
+//                        timer.schedule(new TimerTask() {
+//                            @Override
+//                            public void run() {
+//                                runCommand(temp - 1);
+//                            }
+//                        }, convertTime(object[0]));
+                            executorService.scheduleWithFixedDelay(new Runnable() {
+                                @Override
+                                public void run() {
+                                    runCommand(temp - 1);
+                                }
+                            }, (int)convertTime(object[0]), 1, TimeUnit.MILLISECONDS);
 
                     }
         }
-        file.toLine(loopEnd + 1);
+        file.toLine(loopEnd);
+    }
+
+    public void alias(String[] props, String[] objs){
+        String[] file = {combine(objs, true, false)};
+        AdvancedPlanner.main(file);
     }
 
     /**
@@ -227,9 +241,9 @@ public class AdvancedPlanner
      * @param input the string to convert
      * @return the string in millisecond form or zero if input is not in correct format
      */
-    public static int convertTime(String input){
+    public static double convertTime(String input){
         if(isNumber(input.substring(0,input.length() -1))) {
-            int retVal = Integer.parseInt(input.substring(0,input.length() -1));
+            double retVal = Integer.parseInt(input.substring(0,input.length() -1));
             switch (input.substring(input.length() - 1).toLowerCase().trim()) {
                 case "m":
                     retVal *= 60000;
