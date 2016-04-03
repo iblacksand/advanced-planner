@@ -45,10 +45,10 @@ __Will be constanly updated with additions/completions__
 - [x] Write 3 journal entries
 
 ### April 1
-- [ ] Create section of GUI designed to make the script
-- [ ] Finish the compiler
-- [ ] Test the compiler
-- [ ] Start Alias support
+- [x] Create section of GUI designed to make the script
+- [x] Finish the compiler
+- [x] Test the compiler
+- [x] Start Alias support
 - [ ] Write 2 journal entries
 
 ### April 15
