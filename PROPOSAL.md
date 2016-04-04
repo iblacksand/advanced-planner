@@ -49,7 +49,7 @@ __Will be constanly updated with additions/completions__
 - [x] Finish the compiler
 - [x] Test the compiler
 - [x] Start Alias support
-- [ ] Write 2 journal entries
+- [x] Write 2 journal entries
 
 ### April 15
 - [ ] Finish the alias support
