@@ -25,6 +25,7 @@ public class ScriptMaker extends Application{
     }
 
     public void start(Stage primStage){
+        NumberSpinner numSpin = new NumberSpinner();
         FileEditor fileEditor = new FileEditor(path);
         BorderPane borderPane = new BorderPane();
         borderPane.setPadding(new Insets(20,0,20,20));
@@ -47,7 +48,7 @@ public class ScriptMaker extends Application{
         HBox hBox = new HBox();
         hBox.setSpacing(10);
         hBox.setPadding(new Insets(0,20,10,20));
-        hBox.getChildren().addAll(textField, add, exit);
+        hBox.getChildren().addAll(textField, add, exit, numSpin);
         borderPane.setCenter(hBox);
         Scene scene = new Scene(borderPane, 800, 600);
         primStage.setScene(scene);

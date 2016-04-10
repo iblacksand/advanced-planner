@@ -31,7 +31,6 @@ public class AdvancedPlannerGui extends Application{
 
     public static void main(String[] args){
         launch(args);
-        //addText("This is a test");
     }
 
     public void start(){
@@ -91,7 +90,12 @@ public class AdvancedPlannerGui extends Application{
                 String file = textField.getText();
                 if(isFile(file)){
                     notFile.setVisible(false);
-                    new ScriptMaker(file);
+                    try {
+                        Runtime.getRuntime().exec("cmd" + " /c " + "notepad.exe " + file);
+                    }
+                    catch(Exception e){
+
+                    }
                 }
                 else{
                     notFile.setVisible(true);
@@ -101,17 +105,6 @@ public class AdvancedPlannerGui extends Application{
         Button exit = new Button("Exit");
         exit.setVisible(true);
         exit.setOnAction(event -> primStage.fireEvent(new WindowEvent(primStage, WindowEvent.WINDOW_CLOSE_REQUEST)));
-//        StackPane root = new StackPane();
-//        root.getChildren().add(textField);
-//        root.getChildren().add(compile);
-//        root.getChildren().add(button);
-//        root.getChildren().add(exit);
-//        root.getChildren().add(notFile);
-//        root.getChildren().add(compileError);
-//        primStage.setScene(new Scene(root, 300, 250));
-//        primStage.setFullScreen(true);
-//        primStage.alwaysOnTopProperty();
-//        primStage.show();
         HBox vbButtons = new HBox();
         vbButtons.setSpacing(10);
         vbButtons.setPadding(new Insets(0,20,10,20));
