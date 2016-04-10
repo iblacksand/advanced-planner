@@ -76,4 +76,8 @@ During this week I started to work on making the program work in a basic way. It
   Word Count : [167](http://i.imgur.com/e4tLpHV.png)
   
  ## Journal Entry for the week of Mar 30 - Apr 10
- During this week I am making the [GUI](https://github.com/iblacksand/advanced-planner/blob/master/gui/AdvancedPlannerGui.java) open up notepad when you click on the edit file because it is the better than any editor I would be able to make. I also added number spinners just in case I need them.
+ During this week I am making the [GUI](https://github.com/iblacksand/advanced-planner/blob/master/gui/AdvancedPlannerGui.java) open up notepad when you click on the edit file because it is the better than any editor I would be able to make. I also added number spinners just in case I need them. I also started to work on [Console.java](https://github.com/iblacksand/advanced-planner/blob/master/gui/Console.java) and got the console to show text. The big problem I have is what method should be static. I think it would have to be [AdvancedPlanner.java](https://github.com/iblacksand/advanced-planner/blob/master/main/AdvancedPlanner.java). The problem I have is how to make it communicate with the console since the GUI is what contains both of them. I currently have the GUI static but I fear this will have to change. I made the console have a complete redo so it is much simpler. I may just make the console cmd, which would mean that it would only be for windows but hopefully I can make it work with what I have already, and it is already just for windows since the editor is just windows. This, also with alias support is what I have left for the next week.
+ 
+ ---
+ 
+  Word Count : [181](http://i.imgur.com/WX59F3J.jpg)
