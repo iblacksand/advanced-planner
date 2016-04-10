@@ -74,3 +74,6 @@ During this week I started to work on making the program work in a basic way. It
  ---
 
   Word Count : [167](http://i.imgur.com/e4tLpHV.png)
+  
+ ## Journal Entry for the week of Mar 30 - Apr 10
+ During this week I am making the [GUI](https://github.com/iblacksand/advanced-planner/blob/master/gui/AdvancedPlannerGui.java) open up notepad when you click on the edit file because it is the better than any editor I would be able to make. I also added number spinners just in case I need them.
