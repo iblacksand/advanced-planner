@@ -480,8 +480,6 @@ public class Script
                 }
 
             }
-
-            t = -1;
         }
         catch(IOException e)
         {
