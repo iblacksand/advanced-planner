@@ -1,7 +1,7 @@
 #Development Journal
 John Elizarraras
 
-[Latest Journal Entry](#journal-entry-for-the-week-of-mar-7---mar-13)
+[Latest Journal Entry](#journal-entry-for-the-week-of-mar-19---mar-29)
 
 ## Journal entry for the week of Jan 22 - 29
 
@@ -60,3 +60,25 @@ During this week I started to put everything into the deliverables and I am tryi
 
 ---
  Word Count : [139](http://i.imgur.com/aXuskDG.png)
+ 
+## Journal Entry for the week of Mar 14 - Mar 18
+During this week I started to work on making the program work in a basic way. It "works" in the sense that all of the commands work except for the properties which is a deliverable I will add for the next deliverable cycle. I made the Script just not add properties that don't exist so the compiler won't need to handle it. I also started to make a tutorial that is available on the projects [GitHub Page](http://iblacksand.github.io/advanced-planner/). There is also, I think, more readable versions of this, and all of the other .md files on the website. I will give credit to [Strapdown.js](http://strapdownjs.com/) for creating the tool that I used to create the webpage. The final things left for me to do for the deliverables is to have the alias support and changing the script maker to extend to application, not jFrame to make it look nicer.
+
+---
+
+ Word Count : [149](http://i.imgur.com/aabnOFh.png)
+
+ ## Journal Entry for the week of Mar 19 - Mar 29
+ During this week I finished all of the deliverables for this week which you can see in [DELIVERABLES.md](https://github.com/iblacksand/advanced-planner/blob/master/DELIVERABLES.md). I finished the compiler to work with the gui, which works. The only problem I have with loop is that it only pauses once, and loops through immediatly. I could do Thread.sleep(int x), but this makes the window freeze. Another issue I have is that when I press the exit button on the gui, the advanced planner still goes. Also I am keeping track of [iblacksand.github.io](http://iblacksand.github.io/), so you can trust everything on there. I also made the script builder, although it is simple, it gets the job done. I also got aliases to start. The last parts of the project to be done is pausing and the properties. I also released [v.15](https://github.com/iblacksand/advanced-planner/releases/tag/v0.15), which is something that you can use. Although it can be hard, you can see a tutorial for it [here](http://iblacksand.github.io/advanced-planner/Tutorial.html). There is a list of commands [here](http://iblacksand.github.io/advanced-planner/Commands.html). You can do basic stuff except for aliases and properties.
+
+ ---
+
+  Word Count : [167](http://i.imgur.com/e4tLpHV.png)
+  
+ ##Journal Entry for the week of Mar 30 - Apr 10
+ 
+ During this week I am making the [GUI](https://github.com/iblacksand/advanced-planner/blob/master/gui/AdvancedPlannerGui.java) open up notepad when you click on the edit file because it is the better than any editor I would be able to make. I also added number spinners just in case I need them. I also started to work on [Console.java](https://github.com/iblacksand/advanced-planner/blob/master/gui/Console.java) and got the console to show text. The big problem I have is what method should be static. I think it would have to be [AdvancedPlanner.java](https://github.com/iblacksand/advanced-planner/blob/master/main/AdvancedPlanner.java). The problem I have is how to make it communicate with the console since the GUI is what contains both of them. I currently have the GUI static but I fear this will have to change. I made the console have a complete redo so it is much simpler. I may just make the console cmd, which would mean that it would only be for windows but hopefully I can make it work with what I have already, and it is already just for windows since the editor is just windows. This, also with alias support is what I have left for the next week.
+ 
+ ---
+ 
+  Word Count : [181](http://i.imgur.com/WX59F3J.jpg)

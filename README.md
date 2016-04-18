@@ -1,3 +1,7 @@
+#[**Project Website**](http://iblacksand.github.io/advanced-planner/)
+
+View the tutorial [**here**](http://iblacksand.github.io/advanced-planner/Tutorial.html)
+
 Information is located in **Proposal.md**
 
 Open [__Proposal.md__](https://github.com/iblacksand/advanced-planner/blob/master/PROPOSAL.md)
