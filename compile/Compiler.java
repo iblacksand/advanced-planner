@@ -1,6 +1,9 @@
 package compile;
 
 import file.Script;
+import tools.ToolBox;
+
+import javax.tools.Tool;
 import java.util.ArrayList;
 /**
  * Created by John Elizarraras on 2/28/2016.
@@ -60,6 +63,9 @@ public class Compiler {
                     break;
                 case "}":
                     break;
+                case "alias":
+                    checkAlias(i);
+                    break;
 			    default:
 			        addError(i,"Not a command");
 			        break;
@@ -69,6 +75,13 @@ public class Compiler {
                 addError(i, "This is not a command");
             }
             file.nextLine();
+        }
+    }
+
+    private void checkAlias(int index){
+        String[] vars = file.object(index);
+        if(!ToolBox.isFile(ToolBox.combine(vars, true, false))){
+            addError(index, "String given is not a file!");
         }
     }
 
@@ -90,6 +103,8 @@ public class Compiler {
                 break;
             case "}":
                 break;
+            case "alias":
+                break;
             default:
             result = false;
             break;
@@ -102,6 +117,7 @@ public class Compiler {
      * @param index the index of the command
      */
     public void checkRun(int index){
+
     }
 
     /**

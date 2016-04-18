@@ -8,6 +8,6 @@ public class CommandTest {
 	public static void main(String[] args)
 	{
 		String[] a = {"example.sc"};
-		 AdvancedPlanner.main(a);
+		new AdvancedPlanner(a[0]);
 	}
 }

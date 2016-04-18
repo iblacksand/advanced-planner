@@ -14,31 +14,20 @@ import java.util.concurrent.*;
  */
 public class AdvancedPlanner
 {
-    private static int failures;
-    private static Script file;
-    private static Scanner in = new Scanner(System.in);
-
-    /**
-     *the main method
-     *@param args arguments (not used)
-     */
-    public static void main(String[] args) {
-        file = new Script(args[0]);
+    private  int failures;
+    private  Script file;
+    private  Scanner in = new Scanner(System.in);
+    
+    public AdvancedPlanner(String file){
+        this.file = new Script(file);
         failures = 0;
-        System.out.println("hello");
-        boolean exit = false;
-        while(!exit)
-        {
-            System.out.println("running command");
-            exit = runCommandMain();
-        }
     }
     
     /**
      * sets the path of the file
      * @param path the new path of the file.
      */
-    public static void setPath(String path)
+    public  void setPath(String path)
     {
         file = new Script(path);
     }
@@ -48,7 +37,7 @@ public class AdvancedPlanner
      *@param props the properties of the loop
      *@param object array holding the information of the loop
      */
-    public static void loop(String[] props,String[] object)
+    public void loop(String[] props,String[] object)
     {
 
         file.toLine(file.currentLine() + 2);
@@ -87,15 +76,15 @@ public class AdvancedPlanner
     }
 
     public void alias(String[] props, String[] objs){
-        String[] file = {combine(objs, true, false)};
-        AdvancedPlanner.main(file);
+        String file = combine(objs, true, false);
+        new AdvancedPlanner(file);
     }
 
     /**
      *runs the commands in the script
      *@return the boolean if the file is on its line
      */
-    public static boolean runCommandMain()
+    public boolean runCommandMain()
     {
         String command = file.command();
         String[] props = file.properties();
@@ -122,7 +111,7 @@ public class AdvancedPlanner
      *runs the command on the specified line
      *@param k the line to look at
      */
-    public static void runCommand(int k)
+    public void runCommand(int k)
     {
         if(k < file.length() && k > 0)
         {
@@ -152,7 +141,7 @@ public class AdvancedPlanner
      * @param props the properties of the program
      * @param objs the name of the program
      */
-    public static void run(String[] props, String[] objs)
+    public void run(String[] props, String[] objs)
     {
         if(contains(props,"f") && failures > 0)
         {
@@ -178,7 +167,7 @@ public class AdvancedPlanner
      * @param find the string to search for
      * @return true if the string[] contains the string
      */
-    public static boolean contains(String[] strA, String find)
+    public boolean contains(String[] strA, String find)
     {
         boolean result = false;
         for (String aStrA : strA) {
@@ -192,7 +181,7 @@ public class AdvancedPlanner
      * @param props the properties of the text
      * @param objs the text to display
      */
-    public static void display(String[] props, String[] objs)
+    public void display(String[] props, String[] objs)
     {
         for (String obj : objs) {
             System.out.println(obj);
@@ -204,7 +193,7 @@ public class AdvancedPlanner
      * @param props the properties of the command
      * @param objs the object of the command 
      */
-    public static void fixScript(String[] props, String[] objs)
+    public void fixScript(String[] props, String[] objs)
     {
         System.out.println("What is the path to change?");
         FileEditor fe = new FileEditor(in.nextLine());
@@ -217,7 +206,7 @@ public class AdvancedPlanner
     * @param newLines boolean wheter or not to put \n after each string
     * @return the String array combined into one
     */
-    public static String combine(String[] ary, boolean toAddSpace, boolean newLines)
+    public String combine(String[] ary, boolean toAddSpace, boolean newLines)
     {
         String params = "";
         if(toAddSpace) params += " ";
@@ -232,7 +221,7 @@ public class AdvancedPlanner
 	/**
 	* adds a failure if needed
 	*/
-    public static void addFailure(){
+    public void addFailure(){
         failures++;
 	}
 
@@ -241,7 +230,7 @@ public class AdvancedPlanner
      * @param input the string to convert
      * @return the string in millisecond form or zero if input is not in correct format
      */
-    public static double convertTime(String input){
+    public double convertTime(String input){
         if(isNumber(input.substring(0,input.length() -1))) {
             double retVal = Integer.parseInt(input.substring(0,input.length() -1));
             switch (input.substring(input.length() - 1).toLowerCase().trim()) {
@@ -270,7 +259,7 @@ public class AdvancedPlanner
      * @param str the possible number to check
      * @return true if inputted string is a int.
      */
-    private static boolean isNumber(String str){
+    private boolean isNumber(String str){
         boolean result = false;
         try{
             Integer.parseInt(str);
