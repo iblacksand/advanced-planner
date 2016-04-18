@@ -1,7 +1,7 @@
 #Development Journal
 John Elizarraras
 
-[Latest Journal Entry](#journal-entry-for-the-week-of-mar-19---mar-29)
+[Latest Journal Entry](#journal-entry-for-the-week-of-apr-10---apr-17)
 
 ## Journal entry for the week of Jan 22 - 29
 
@@ -82,3 +82,11 @@ During this week I started to work on making the program work in a basic way. It
  ---
  
   Word Count : [181](http://i.imgur.com/WX59F3J.jpg)
+ 
+ ## Journal Entry for the week of Apr 10 - Apr 17
+ 
+ During this week I finished all of the deliverables. The problem is that I won't be able to update the [DELIVERABLES.md](https://github.com/iblacksand/advanced-planner/blob/master/DELIVERABLES.md) today but the [proposal](https://github.com/iblacksand/advanced-planner/blob/master/PROPOSAL.md) will show it. I finished the GUI to a point where I think that it should be usable by the public. I opened up the beta, although technically you could do it since the first release, and you can sign up at [http://iblacksand.github.io/advanced-planner/](http://iblacksand.github.io/advanced-planner/) and go to the beta link. I do have a google form which will be used so that I can get results from people to help improve what it does. The thing that I am working on is pausing. The problem is that the way I know to pause causes everything to pause, even the GUI which makes it non-responsive. I might have to drop properties since I made the GUI a lot more of the program that I expected. If I had the chance to redo this I would get rid of the GUI since it is the actual interpreter which would make this project something useful. It only has three commands, with one that only helps with the other. I also rely on the cmd for display which is not what I wanted to do, but I think that is better. I will probably stop working on the GUI since it meets what I want out of it. The only thing that I would consider doing is the GUI that builds the script, but I might do something in javascript(since I started it) so it is quick and doesn't require the whole program to run and it would be on the web. This is what I plan to do. Hopefully it won't be too challenging.
+ 
+ ---
+ 
+ Word Count : [285](http://i.imgur.com/7an7yxW.jpg)
