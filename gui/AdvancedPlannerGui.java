@@ -4,7 +4,6 @@ import compile.Compiler;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.*;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -12,15 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import main.AdvancedPlanner;
 import java.io.FileReader;
-import java.io.InterruptedIOException;
 import java.util.Optional;
 
 /**
@@ -52,8 +48,7 @@ public class AdvancedPlannerGui extends Application{
         button.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
             @Override
             public void handle(javafx.event.ActionEvent event) {
-                String[] file = {textField.getText()};
-                AdvancedPlanner.main(file);
+                AdvancedPlanner ap = new AdvancedPlanner(textField.getText());
             }
         });
         button.setVisible(false);
@@ -88,6 +83,7 @@ public class AdvancedPlannerGui extends Application{
             @Override
             public void handle(ActionEvent event) {
                 String file = textField.getText();
+                new Console(file);
                 if(isFile(file)){
                     notFile.setVisible(false);
                     try {
@@ -113,6 +109,7 @@ public class AdvancedPlannerGui extends Application{
         Scene scene = new Scene(border,800,600);
         primStage.setScene(scene);
         primStage.show();
+        // Console con = new Console("Test");
     }
 
     private boolean isFile(String name){
