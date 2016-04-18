@@ -83,10 +83,10 @@ public class AdvancedPlannerGui extends Application{
             @Override
             public void handle(ActionEvent event) {
                 String file = textField.getText();
-                new Console(file);
                 if(isFile(file)){
                     notFile.setVisible(false);
                     try {
+                        button.setVisible(false);
                         Runtime.getRuntime().exec("cmd" + " /c " + "notepad.exe " + file);
                     }
                     catch(Exception e){
