@@ -1,5 +1,2 @@
-loop .01s 5
-{
-display hello
-}
-display finished
+run notepad
+display hello world
