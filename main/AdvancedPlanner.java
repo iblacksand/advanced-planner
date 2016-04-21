@@ -2,6 +2,8 @@ package main;
 
 import file.Script;
 import file.FileEditor;
+import tools.ToolBox;
+
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,6 +23,7 @@ public class AdvancedPlanner
     public AdvancedPlanner(String file){
         this.file = new Script(file);
         failures = 0;
+        while(runCommandMain());
     }
     
     /**

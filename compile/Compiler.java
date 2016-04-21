@@ -5,6 +5,9 @@ import tools.ToolBox;
 
 import javax.tools.Tool;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.jar.Pack200;
+
 /**
  * Created by John Elizarraras on 2/28/2016.
  */
@@ -60,8 +63,10 @@ public class Compiler {
 			        checkDisplay(i);
 			        break;
                 case "{":
+                    checkOpenBracket(i);
                     break;
                 case "}":
+                    checkCloseBracket(i);
                     break;
                 case "alias":
                     checkAlias(i);
@@ -159,9 +164,11 @@ public class Compiler {
             for (int i = index +  2; i < file.length(); i++){
                 if(file.fullLine(i).equals("{")){
                     addError(i, "Another '{' before a '}'");
+                }
+                else if(file.fullLine(i).equals("}")){
+                    needsError = false;
                     break;
                 }
-                else if(file.fullLine(i).equals("}")) needsError = false;
             }
             if(needsError) addError(file.length(), "No closing '}'");
         }
@@ -178,6 +185,36 @@ public class Compiler {
 	private void checkDisplay(int index){
 
 	}
+
+    private void checkOpenBracket(int index){
+        try{
+            if(!lineContains("loop", file.fullLine(index - 1), 0, 4)) addError(index, "Open bracket without loop before");
+        }
+        catch(Exception e){
+            addError(index, "Open bracket without loop before");
+        }
+    }
+
+    private void checkCloseBracket(int index){
+        try{
+            for(int i = index - 1; i >= 0; i--){
+                if(lineContains("loop", file.fullLine(i), 0, 4)) return;
+                else if(lineContains("}", file.fullLine(i), 0, 1)) addError(i, "'}' before '{'");
+            }
+            addError(index, "'}' with not opening bracket");
+        }
+        catch(Exception e){
+            addError(index, "Closed bracket in illegal position");
+        }
+    }
+
+    private boolean lineContains(String wantToFind, String toCheck, int index1, int index2){
+        try{
+            return wantToFind.equals(toCheck.substring(index1, index2));
+        }
+        catch(Exception e){};
+        return false;
+    }
 
 	/**
 	* Checks if the String given is a number
@@ -205,6 +242,10 @@ public class Compiler {
 	public int errors(){
 		return errors.size();
 	}
+
+    public ArrayList<CompileError> getErrors(){
+        return errors;
+    }
 
     /**
      * lists the errors in the file

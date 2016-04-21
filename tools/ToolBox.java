@@ -52,4 +52,13 @@ public class ToolBox {
         }
         return res;
     }
+
+    public static void pause(int ms){
+        try{
+            Thread temp = new Thread();
+            temp.start();
+            temp.sleep(ms);
+        }
+        catch(Exception e){};
+    }
 }

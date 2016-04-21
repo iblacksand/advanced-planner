@@ -493,7 +493,7 @@ public class Script
      */
     public boolean isLastLine()
     {
-        return !(curLine < length());
+        return curLine == file.length;
     }
 
     /**
