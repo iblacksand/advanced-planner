@@ -19,13 +19,13 @@ public class AdvancedPlanner
     private  int failures;
     private  Script file;
     private  Scanner in = new Scanner(System.in);
-    
+
     public AdvancedPlanner(String file){
         this.file = new Script(file);
         failures = 0;
         while(runCommandMain());
     }
-    
+
     /**
      * sets the path of the file
      * @param path the new path of the file.
@@ -53,27 +53,13 @@ public class AdvancedPlanner
             else loopEnd++;
         }
         final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        final int loope = loopEnd;
         for(int i = 0; i < Integer.parseInt(object[1]); i++)
         {
-                    for(int p = startLine; p < loope; p++)
-                    {
-//                        Timer timer = new Timer();
-                          final int temp = p;
-//                        timer.schedule(new TimerTask() {
-//                            @Override
-//                            public void run() {
-//                                runCommand(temp - 1);
-//                            }
-//                        }, convertTime(object[0]));
-                            executorService.scheduleWithFixedDelay(new Runnable() {
-                                @Override
-                                public void run() {
-                                    runCommand(temp - 1);
-                                }
-                            }, (int)convertTime(object[0]), 1, TimeUnit.MILLISECONDS);
-
-                    }
+            for(int p = startLine; p < loopEnd; p++)
+            {
+                runCommand(p);
+                ToolBox.pause(convertTime(object[0]));
+            }
         }
         file.toLine(loopEnd);
     }
@@ -203,12 +189,12 @@ public class AdvancedPlanner
     }
 
     /**
-    * combines an String array into one
-    * @param ary the array to combine
-    * @param toAddSpace boolean whether or not to add a space
-    * @param newLines boolean wheter or not to put \n after each string
-    * @return the String array combined into one
-    */
+     * combines an String array into one
+     * @param ary the array to combine
+     * @param toAddSpace boolean whether or not to add a space
+     * @param newLines boolean wheter or not to put \n after each string
+     * @return the String array combined into one
+     */
     public String combine(String[] ary, boolean toAddSpace, boolean newLines)
     {
         String params = "";
@@ -221,36 +207,36 @@ public class AdvancedPlanner
         return full;
     }
 
-	/**
-	* adds a failure if needed
-	*/
+    /**
+     * adds a failure if needed
+     */
     public void addFailure(){
         failures++;
-	}
+    }
 
     /**
      * converts the string input into milliseconds
      * @param input the string to convert
      * @return the string in millisecond form or zero if input is not in correct format
      */
-    public double convertTime(String input){
+    public int convertTime(String input){
         if(isNumber(input.substring(0,input.length() -1))) {
             double retVal = Integer.parseInt(input.substring(0,input.length() -1));
             switch (input.substring(input.length() - 1).toLowerCase().trim()) {
                 case "m":
-                    retVal *= 60000;
-                    break;
+                retVal *= 60000;
+                break;
                 case "h":
-                    retVal *= 360000;
-                    break;
+                retVal *= 360000;
+                break;
                 case "s":
-                    retVal *= 1000;
-                    break;
+                retVal *= 1000;
+                break;
                 default:
-                    retVal = 0;
-                    break;
+                retVal = 0;
+                break;
             }
-            return retVal;
+            return (int)retVal;
         }
         else{
             return 0;
@@ -272,5 +258,24 @@ public class AdvancedPlanner
             result = false;
         }
         return result;
+    }
+
+    public boolean validTime(String input){
+        boolean retVal = false;
+        switch (input.substring(input.length() - 1).toLowerCase().trim()) {
+            case "m":
+            retVal = true;
+            break;
+            case "h":
+            retVal = true;
+            break;
+            case "s":
+            retVal = true;
+            break;
+            default:
+            retVal = false;
+            break;
+        }
+        return retVal;
     }
 }
