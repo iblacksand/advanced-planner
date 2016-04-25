@@ -83,3 +83,5 @@ During this week I started to work on making the program work in a basic way. It
  
   Word Count : [181](http://i.imgur.com/WX59F3J.jpg)
   
+  ## Journal Entry for the week of Apr 15 - Apr 24
+  During this week I was able to
