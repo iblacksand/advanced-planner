@@ -1,7 +1,7 @@
 #Development Journal
 John Elizarraras
 
-[Latest Journal Entry](#journal-entry-for-the-week-of-mar-19---mar-29)
+[Latest Journal Entry](#journal-entry-for-the-week-of-apr-15---apr-24)
 
 ## Journal entry for the week of Jan 22 - 29
 
@@ -84,4 +84,9 @@ During this week I started to work on making the program work in a basic way. It
   Word Count : [181](http://i.imgur.com/WX59F3J.jpg)
   
   ## Journal Entry for the week of Apr 15 - Apr 24
-  During this week I was able to
+  
+  During this week I was able to finally get the .prop() tag to work. The only times I put in is seconds (s), minutes (m) and hours (h). just do run.prop(5s) notepad, or something similar. I also am starting some javascript that will do basic checks on some code but I am only doing one line at a time right now, but it would at least be something that would allow people to quickly check commands. I can't do much right now since I have to wait for people to find issues with the program. I will try to make the GUI that will quickly make some commands like what was supposed to happen before I decided that it would probably be more confusing than just a text editor. I had no deliverables for this week so There was no pressure. I already did the GUI and opened it to the public so there is nothing to do for this cycle. I will try to add more commands but I have no ideas of what to add.
+  
+  ---
+  
+  Word Count : [177](http://i.imgur.com/WCxPb4J.jpg)
