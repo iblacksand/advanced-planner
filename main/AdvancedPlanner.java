@@ -5,6 +5,7 @@ import file.FileEditor;
 import tools.ToolBox;
 
 import java.util.Scanner;
+import java.util.StringJoiner;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.*;
@@ -42,7 +43,7 @@ public class AdvancedPlanner
      */
     public void loop(String[] props,String[] object)
     {
-
+        pause(props);
         file.toLine(file.currentLine() + 2);
         int startLine = file.currentLine();
         int loopEnd = startLine;
@@ -138,6 +139,7 @@ public class AdvancedPlanner
         }
         else
         {
+            pause(props);
             String full = combine(objs,true,false);
             try{
                 ProcessBuilder pb = new ProcessBuilder(combine(objs,true,false));
@@ -172,6 +174,7 @@ public class AdvancedPlanner
      */
     public void display(String[] props, String[] objs)
     {
+        pause(props);
         for (String obj : objs) {
             System.out.println(obj);
         }
@@ -258,6 +261,14 @@ public class AdvancedPlanner
             result = false;
         }
         return result;
+    }
+
+    private void pause(String[] possible){
+        for(String str : possible){
+            if(validTime(str)){
+                ToolBox.pause(convertTime(str));
+            }
+        }
     }
 
     public boolean validTime(String input){
