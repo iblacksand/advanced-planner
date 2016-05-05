@@ -1,0 +1,71 @@
+<html>
+<head>
+	<title>Advanced-Planner</title>
+</head>
+<textarea name="code" rows ="25" cols="50">
+Put your code here.
+</textarea>
+<button onclick="start()">Click me</button>
+<script>
+var file = [];
+function  start(fileArray) {
+	file = document.getElementById("code").value;
+	compiles();
+	showErrors();
+	console.log("I seee you");
+}
+
+function compiles(){
+	for (var i = 0; i < file.length; i++) {
+		var line = file[i];
+		if(isCommand(line)){
+			switch(command(line).toLowerCase()){
+				case "run":
+				checkRun(line);
+				break;
+				case "loop":
+				checkLoop;
+				break;
+				case "display":
+				check
+			}
+		}
+	};
+}
+
+function isCommand(line){
+	var command = command(line);
+	var res = true;
+	switch(command.toLowerCase()){
+		case "loop":
+		break;
+		case "run":
+		break;
+		case "{":
+		break;
+		case "}":
+		break;
+		case "alias":
+		break;
+		default:
+		result = false;
+		break;
+	}
+	return res;
+}
+
+function command(line){
+	var command = "";
+	for (var i = 0; i < line.length; i ++) {
+		var str = line.substring(i, i + 1);
+		if(!(str === " " || str === ".")){
+			command += str;
+		}
+		else{
+			break;
+		}
+	};
+	return command;
+}
+</script>
+</html>
