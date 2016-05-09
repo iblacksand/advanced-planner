@@ -8,11 +8,15 @@ Put your code here.
 <button onclick="start()">Click me</button>
 <script>
 var file = [];
-function  start(fileArray) {
-	file = document.getElementById("code").value;
+var errors = [];
+function start() {
+	file = document.getById("code").value;
 	compiles();
 	showErrors();
-	console.log("I seee you");
+}
+
+function addError(line, message){
+	errors.push("Error on line: " + line + " Error Message:" + message);
 }
 
 function compiles(){
@@ -21,16 +25,33 @@ function compiles(){
 		if(isCommand(line)){
 			switch(command(line).toLowerCase()){
 				case "run":
-				checkRun(line);
+				checkRun(i);
 				break;
 				case "loop":
-				checkLoop;
+				checkLoop();
 				break;
 				case "display":
-				check
+				break;
+				case "{":
+				checkOpenBrackets(i);
+				break;
+				case "}":
+				checkCloseBrackets(i);
+				break;
 			}
 		}
 	};
+}
+
+function showErrors(){
+	for (var index = 0; index < errors.length; index++) {
+		var element = errors[index];
+		console.log("Error: " + element);
+	}
+}
+
+function checkLoop(lineNum){
+	
 }
 
 function isCommand(line){
@@ -48,6 +69,7 @@ function isCommand(line){
 		case "alias":
 		break;
 		default:
+		addError("Not a command" , "Test");
 		result = false;
 		break;
 	}

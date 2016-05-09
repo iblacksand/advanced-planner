@@ -1,8 +1,13 @@
 var file = [];
-function  start(fileArray) {
+var errors = [];
+function start(fileArray) {
 	file = fileArray;
 	compiles();
 	showErrors();
+}
+
+function addError(line, message){
+	errors.push("Error on line: " + line + " Error Message:" + message);
 }
 
 function compiles(){
@@ -11,20 +16,37 @@ function compiles(){
 		if(isCommand(line)){
 			switch(command(line).toLowerCase()){
 				case "run":
-				checkRun(line);
+				checkRun(i);
 				break;
 				case "loop":
-				checkLoop;
+				checkLoop();
 				break;
 				case "display":
-				check
+				break;
+				case "{":
+				checkOpenBrackets(i);
+				break;
+				case "}":
+				checkCloseBrackets(i);
+				break;
 			}
 		}
 	};
 }
 
+function showErrors(){
+	for (var index = 0; index < errors.length; index++) {
+		var element = errors[index];
+		console.log("Error: " + element);
+	}
+}
+
+function checkLoop(lineNum){
+	
+}
+
 function isCommand(line){
-	String command = command(line);
+	var command = command(line);
 	var res = true;
 	switch(command.toLowerCase()){
 		case "loop":
@@ -38,6 +60,7 @@ function isCommand(line){
 		case "alias":
 		break;
 		default:
+		addError("Not a command" , "Test");
 		result = false;
 		break;
 	}
@@ -46,7 +69,7 @@ function isCommand(line){
 
 function command(line){
 	var command = "";
-	for (var i = 0; i < line.length; i +) {
+	for (var i = 0; i < line.length; i ++) {
 		var str = line.substring(i, i + 1);
 		if(!(str === " " || str === ".")){
 			command += str;
