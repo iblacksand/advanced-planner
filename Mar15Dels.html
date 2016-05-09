@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<title>iblacksand</title>
+
+<xmp theme="simplex" style="display:none;">
+[back](/advanced-planner)
+
+# Deliverables for March 15
+
+### From [Compiler.java](https://github.com/iblacksand/advanced-planner/blob/master/compile/Compiler.java)
+
+```java
+/**
+     * compiles all of the file
+     */
+    private void compile(){
+        for(int i = 0; i < file.length(); i++){
+            String line = file.fullLine();
+            if(isCommand(file.command())){
+            switch(file.command().toLowerCase()){
+                case "run":
+                    checkRun(i);
+                    break;
+                case "loop":
+                    checkLoop(i);
+                    break;
+                case "display":
+                    checkDisplay(i);
+                    break;
+                case "{":
+                    break;
+                case "}":
+                    break;
+                default:
+                    addError(i,"Not a command");
+                    break;
+        }
+            }
+            else{
+                addError(i, "This is not a command");
+            }
+            file.nextLine();
+        }
+    }
+```
+
+This will go through and make sure the commands go through and add errors if needed
+
+### From [GuiWindow.java](https://github.com/iblacksand/advanced-planner/blob/master/gui/GuiWindow.java)
+
+```java
+super("Advanced Planner");
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                GuiWindow.this.setVisible(false);
+                GuiWindow.this.dispose();
+            }
+        });
+
+        final JLabel test  =new JLabel();
+        test.setText("Hello");
+        add(test);
+```
+
+This was used to test how Swing worked and know I think I will be able to work on the actual GUI.
+
+## Deliverables for the April 1 2016
+
+### From [/gui](https://github.com/iblacksand/advanced-planner/tree/master/gui)
+
+```java
+Button edit = new Button("Edit File");
+        edit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String file = textField.getText();
+                if(isFile(file)){
+                    notFile.setVisible(false);
+                    new ScriptMaker(file);
+                }
+                else{
+                    notFile.setVisible(true);
+                }
+            }
+        });
+```
+
+```java
+ Button exit = new Button("Exit");
+        exit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                primStage.hide();
+            }
+        });
+        Button add = new Button("Add Line");
+        add.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                fileEditor.add(textField.getText());
+            }
+        });
+        HBox hBox = new HBox();
+        hBox.setSpacing(10);
+        hBox.setPadding(new Insets(0,20,10,20));
+        hBox.getChildren().addAll(textField, add, exit);
+        borderPane.setCenter(hBox);
+        Scene scene = new Scene(borderPane, 800, 600);
+        primStage.setScene(scene);
+        primStage.show();
+```
+
+This is the gui for making the script which was one of the deliverables i plan to add more complicated gui that will prevent any errors made.
+
+### From [Compiler.java](https://github.com/iblacksand/advanced-planner/blob/master/compile/Compiler.java)
+```java
+ /**
+     * checks if the string is a command
+     * @param posCommand the possible command
+     * @return true if the string is an accepted command
+     */
+    private boolean isCommand(String posCommand){
+        boolean result = true;
+        switch(posCommand.toLowerCase()){
+            case "loop":
+            break;
+            case "run":
+            break;
+            case "display":
+            break;
+            case "{":
+                break;
+            case "}":
+                break;
+            default:
+            result = false;
+            break;
+        }
+        return result;
+    }
+```
+
+This is a snippet that will check to make sure all of the possible commands will work. I have tested it a lot and have no errors that i can find
+
+### From [AdvancedPlanner.java](https://github.com/iblacksand/advanced-planner/blob/master/main/AdvancedPlanner.java)
+```java
+public void alias(String[] props, String[] objs){
+        String[] file = {combine(objs, true, false)};
+        AdvancedPlanner.main(file);
+    }
+```
+this is the very basics of the alias support. The program won't recognize it unless you do under the hood stuff.
+</xmp>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>
