@@ -2,15 +2,14 @@
 <head>
 	<title>Advanced-Planner</title>
 </head>
-<textarea name="code" rows ="25" cols="50">
-Put your code here.
-</textarea>
+<textarea id="code" name="code" rows ="25" cols="50" style="color: black; background-color: transparent;">Put your code here.</textarea>
+<textarea id="errors" name="errors" rows ="25" cols="50" style="color: black; background-color: transparent;">Please Compile First</textarea>
 <button onclick="start()">Click me</button>
 <script>
 var file = [];
 var errors = [];
 function start() {
-	file = document.getById("code").value;
+	file = document.getElementById("code").value;
 	compiles();
 	showErrors();
 }
@@ -46,7 +45,7 @@ function compiles(){
 function showErrors(){
 	for (var index = 0; index < errors.length; index++) {
 		var element = errors[index];
-		console.log("Error: " + element);
+		document.getElementById("errors").value += "\nError: " + element;
 	}
 }
 
@@ -55,7 +54,7 @@ function checkLoop(lineNum){
 }
 
 function isCommand(line){
-	var command = command(line);
+	var command = this.command(line);
 	var res = true;
 	switch(command.toLowerCase()){
 		case "loop":
