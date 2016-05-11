@@ -201,7 +201,7 @@ public class Compiler {
                 if(lineContains("loop", file.fullLine(i), 0, 4)) return;
                 else if(lineContains("}", file.fullLine(i), 0, 1)) addError(i, "'}' before '{'");
             }
-            addError(index, "'}' with not opening bracket");
+            addError(index, "'}' with no opening bracket");
         }
         catch(Exception e){
             addError(index, "Closed bracket in illegal position");

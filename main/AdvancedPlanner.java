@@ -142,8 +142,8 @@ public class AdvancedPlanner
             pause(props);
             String full = combine(objs,true,false);
             try{
-                ProcessBuilder pb = new ProcessBuilder(combine(objs,true,false));
-                Process p = pb.start();
+                //For linux ("bash -c " + full);
+                Runtime.getRuntime().exec("cmd /c " + full);
             }
             catch(Exception e)
             {

@@ -5,43 +5,55 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import main.AdvancedPlanner;
+
+import java.awt.*;
+import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Optional;
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
+import javafx.scene.layout.Priority;
 
 /**
  * Created by John Elizarraras on 3/15/2016.
  */
-public class AdvancedPlannerGui extends Application{
+public class AdvancedPlannerGui extends Application {
     private Stage mainStage;
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         launch(args);
     }
 
-    public void start(){
+    public void start() {
         main(new String[0]);
     }
 
-    public void stage(){
+    public void stage() {
         main(new String[0]);
     }
 
-    public void start(Stage primStage){
+    public void start(Stage primStage) {
         this.mainStage = primStage;
         primStage.setOnCloseRequest(confirmCloseEventHandler);
         BorderPane border = new BorderPane();
-        border.setPadding(new Insets(20,0,20,20));
+        border.setPadding(new Insets(20, 0, 20, 20));
         primStage.setTitle("Advanced Planner");
         TextField textField = new TextField("Put File Name Here");
         Button button = new Button("Run");
@@ -61,21 +73,27 @@ public class AdvancedPlannerGui extends Application{
             @Override
             public void handle(javafx.event.ActionEvent event) {
                 final int e = errors(textField.getText());
-                if(isFile(textField.getText()) && e < 1){
+                if (isFile(textField.getText()) && e < 1) {
                     button.setVisible(true);
                     notFile.setVisible(false);
                     compileError.setVisible(false);
                 }
-                else if(!isFile(textField.getText())){
+                if (!isFile(textField.getText())) {
                     notFile.setVisible(true);
                     button.setVisible(false);
                 }
-                else if(isFile(textField.getText())) notFile.setVisible(false);
-                else if(e > 0){
+                if (isFile(textField.getText())) notFile.setVisible(false);
+                if (e > 0) {
                     compileError.setVisible(true);
                     button.setVisible(false);
+                    File htmlFile = new File("compileErrors.html");
+                    try {
+                        Desktop.getDesktop().browse(htmlFile.toURI());
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
-                else if(e < 1) compileError.setVisible(false);
+                if (e < 1) compileError.setVisible(false);
             }
         });
         Button edit = new Button("Edit File");
@@ -83,41 +101,44 @@ public class AdvancedPlannerGui extends Application{
             @Override
             public void handle(ActionEvent event) {
                 String file = textField.getText();
-                if(isFile(file)){
+                if (isFile(file)) {
                     notFile.setVisible(false);
                     try {
                         button.setVisible(false);
                         Runtime.getRuntime().exec("cmd" + " /c " + "notepad.exe " + file);
-                    }
-                    catch(Exception e){
+                    } catch (Exception e) {
 
                     }
-                }
-                else{
+                } else {
                     notFile.setVisible(true);
                 }
             }
         });
+
+        WebView browser = new WebView();
+        WebEngine webEngine = browser.getEngine();
+        webEngine.load("compileErrors.html");
         Button exit = new Button("Exit");
         exit.setVisible(true);
         exit.setOnAction(event -> primStage.fireEvent(new WindowEvent(primStage, WindowEvent.WINDOW_CLOSE_REQUEST)));
         HBox vbButtons = new HBox();
         vbButtons.setSpacing(10);
-        vbButtons.setPadding(new Insets(0,20,10,20));
+        vbButtons.setPadding(new Insets(0, 20, 10, 20));
         vbButtons.getChildren().addAll(textField, edit, compile, button, exit, notFile, compileError);
-        border.setCenter(vbButtons);
-        Scene scene = new Scene(border,800,600);
+        border.setTop(vbButtons);
+        Scene scene = new Scene(border, 800, 600);
         primStage.setScene(scene);
         primStage.show();
+
+
         // Console con = new Console("Test");
     }
 
-    private boolean isFile(String name){
+    private boolean isFile(String name) {
         boolean res = true;
         try {
             FileReader f = new FileReader(name);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             res = false;
         }
         return res;
@@ -144,14 +165,15 @@ public class AdvancedPlannerGui extends Application{
         }
     };
 
-    private int errors(String file){
+    private int errors(String file) {
         int ef = 0;
-        if(isFile(file)){
+        if (isFile(file)) {
             Compiler comp = new Compiler(file);
             ef = comp.errors();
         }
         return ef;
     }
+}
 
 //    public void addText(String text){
 //        Stage newStage = mainStage;
@@ -162,5 +184,4 @@ public class AdvancedPlannerGui extends Application{
 //        Scene sc = newStage.getScene();
 //        sc.get
 //
-//    }
-}
+//
