@@ -42,7 +42,7 @@ function showErrors(){
 }
 
 function checkLoop(lineNum){
-	
+
 }
 
 function isCommand(line){
