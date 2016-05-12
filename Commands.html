@@ -5,7 +5,7 @@
 <xmp theme="simplex" style="display:none;">
 [back](http://iblacksand.github.io/advanced-planner/)
 
-#List of Commands
+# List of Commands
 
 ### Run
 Run is used to execute any command that you can do in your command line
@@ -20,9 +20,8 @@ replace notepad with the name of the program. This can work with any command tha
 
 ### Display
 
-**This is not currently fully implemented**
 
-Display is used to display the text given. This will currently only show on the terminal currently with [release v0.15](https://github.com/iblacksand/advanced-planner/releases/tag/v0.15).
+Display is used to display the text given. This will currently only show on the terminal for keeping track of where you are.
 
 it is just used simply as
 
@@ -44,6 +43,27 @@ display hello world
 ```
 
 This will loop 5 times with 5 minutes in between each loop.
+
+The time formats are as follows:
+
+```
+s - seconds
+m - minutes
+h - days
+d - days
+```
+
+### Properties
+
+Properties are attached directly to a command with the .prop() tag.
+
+Example:
+```
+run.prop(5s) chrome
+display.prop(10m) notepad
+```
+
+This will run chrome after a 5 second delay. After a 10 minute delay it will display the words notepad in the console
 </xmp>
 
 <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
