@@ -1,32 +1,32 @@
 <html>
+
 <head>
 	<title>Advanced-Planner</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src="js/jquery-linedtextarea.js"></script>
-	<script src="js/compiler.js">start()</script>
-	<link href="css/jquery-linedtextarea.css" type="text/css" rel="stylesheet"/>
-	<link rel="stylesheet" href="css/Button.css"/>
-</head>
-	<body>
-<textarea id="code" name="code" rows ="25" cols="50" style="color: black; background-color: transparent; width:500px" class="lined" >Put your code here.</textarea>
-		<textarea id="errors" name="errors" rows ="25" cols="50" style="color: black; background-color: transparent; width:500px" readonly class="lined">
--------
-
-Advanced-Planner Online Compiler
-		 By John Elizarraras
--------
-
-Please Compile First
-		</textarea>
-	</body>
-		<p><input type="submit" value="Compile" class="peter-river-flat-button" onclick="start()" height=60 width=20>
-		</p>
-
-	<script>
-		$(function() {
-			$(".lined").linedtextarea(
-				{selectedLine: 1}
-			);
-		});
+	<script src="js/compiler.js">
+		start()
 	</script>
+	<link href="css/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/Button.css" />
+</head>
+
+<body>
+	<textarea id="code" name="code" rows="25" cols="50" style="color: black; background-color: transparent; width:500px" class="lined">Put your code here.</textarea>
+	<textarea id="errors" name="errors" rows="25" cols="50" style="color: black; background-color: transparent; width:500px" readonly class="lined">
+		------- Advanced-Planner Online Compiler By John Elizarraras ------- Please Compile First
+	</textarea>
+</body>
+<p>
+	<input type="submit" value="Compile" class="peter-river-flat-button" onclick="start()" height=60 width=20>
+</p>
+
+<script>
+	$(function () {
+		$(".lined").linedtextarea({
+			selectedLine: 1
+		});
+	});
+</script>
+
 </html>
