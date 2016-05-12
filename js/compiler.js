@@ -4,9 +4,9 @@ var errors = [];
 function start() {
     errors = [];
     file = document.getElementById("code").value.split('\n');
-    document.getElementById("errors").value = "Compiling... Please Wait";
+    document.getElementById("errors").value = "-------\n\nAdvanced-Planner Online Compiler\nBy John Elizarraras\n\n-------\n\nCompiling...Please Wait";
     compiles();
-    showErrors();
+    setTimeout(showErrors, 500);
 }
 
 function addError(line, message) {
@@ -41,11 +41,14 @@ function compiles() {
 }
 
 function showErrors() {
-    document.getElementById("errors").value = "---";
+    var set = "-------\n\nAdvanced-Planner Online Compiler\nBy John Elizarraras\n\n-------\n"
     for (var index = 0; index < errors.length; index++) {
         var element = errors[index];
-        document.getElementById("errors").value += "\n" + element;
+        set += "\n" + element;
     }
+    if(errors.length == 0) set += "\nNo Errors\n---";
+    set += "\nCompiled at " + Date().substring(16,25);
+    document.getElementById("errors").value = set;
 }
 
 function lineContains(want, toCheck, p, q) {
@@ -97,7 +100,7 @@ function checkLoop(lineNum) {
             addError(lineNum + 1, "Not an acceptable time format");
             break;
         }
-        if (Number.isNaN(mods[1])) addError(lineNum + 1, "Second modifier is not a number");
+        if (isNaN(mods[1])) addError(lineNum + 1, "Second modifier is not a number");
         else {
             if (mods[1] < 0) addError(lineNum + 1, "Second modifier is negative");
         }
