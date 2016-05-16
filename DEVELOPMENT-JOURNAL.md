@@ -1,7 +1,7 @@
 #Development Journal
 John Elizarraras
 
-[Latest Journal Entry](#journal-entry-for-the-week-of-apr-58---mar-6)
+[Latest Journal Entry](#journal-entry-for-the-week-of-may-7---may-14)
 
 ## Journal entry for the week of Jan 22 - 29
 
@@ -96,3 +96,11 @@ During this week I started to work on making the program work in a basic way. It
   During this week I started to work on the website compiler. It is almost done with 25% left. I have to improvize on somethings like aliases since  I can't check if the files are in the right place. I also have issues with getting input since people might have weird syntaxes as well as I am having issues with gettting input in general. It says it is null(the textfield) even though there is text there. I have no idea why this is happening but it is making it so that it won't even print to the console. I am going to work on getting the next beta release out so that I can get feedback since now the pauses are now working which is making the program on its final stretches. This project is becoming a lot more web based than I would have thought. I am also depending a lot on the run command since that has a lot of the functionality. I also hope that this works on different os's but I can't test that.
   
   Word Count : [177](http://i.imgur.com/rtAqJET.jpg)
+  
+  ---
+  
+  ## Journal Entry for the week of May 7 - May 14
+  
+  During this week I completly finsished the online compiler. It is able to do all of the things the offline compiler can do except for checking if aliases are correctly compiled. The thing that I need to work on is to check if aliases are correct. The problem with alaises is that it checks it without compiling it. That won't take long but it is something that I have to implement in order for it to be useful. I am going to try to make the presentation with impress.js. If you see any issues with the compiler(you can try it [here](http://iblacksand.github.io/advanced-planner/CompilerHub.html)) can you report it [here](https://github.com/iblacksand/advanced-planner/issues/new). I tried to make it a direct copy of the java version but there is probably going to be some issues. I am going to work on the offline version since now that I am finished with the online stuff.
+  
+  Word Count : [146](http://i.imgur.com/GZm4XO8.jpg)
