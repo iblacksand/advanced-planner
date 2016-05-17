@@ -1,18 +1,26 @@
 <html>
 
 <head>
-	<title>Advanced-Planner</title>
+	<title>iblacksand</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src="js/jquery-linedtextarea.js"></script>
+	<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
 	<script src="js/compiler.js">
 		start()
 	</script>
 	<link href="css/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" href="css/Button.css" />
 </head>
+<title>iblacksand</title>
+
+ <xmp theme="simplex" style="display:none;">
+[back](/advanced-planner)
+
+**IN BETA**
+</xmp>
 
 <body>
-	<textarea id="code" name="code" rows="25" cols="50" style="color: black; background-color: transparent; width:500px" class="lined">Put your code here.</textarea>
+	<textarea id="code" name="code" rows="25" cols="50" style="color: black; background-color: transparent; width:500px" class="lined" placeholder="Put your code here."></textarea>
 	<textarea id="errors" name="errors" rows="25" cols="50" style="color: black; background-color: transparent; width:500px" readonly class="lined">-------
 
 Advanced-Planner Online Compiler
@@ -23,10 +31,6 @@ By John Elizarraras
 Please Compile First
 	</textarea>
 </body>
-<p>
-	<input type="submit" value="Compile" class="peter-river-flat-button" onclick="start()" height=60 width=20>
-</p>
-
 <script>
 	$(function () {
 		$(".lined").linedtextarea({
