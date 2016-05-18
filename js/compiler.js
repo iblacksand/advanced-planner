@@ -36,7 +36,7 @@ function compiles() {
                 checkCloseBrackets(i);
                 break;
             }
-        }
+        }0
     };
 }
 
