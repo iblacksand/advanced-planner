@@ -57,18 +57,16 @@ public class AdvancedPlannerGui extends Application {
         primStage.setTitle("Advanced Planner");
         TextField textField = new TextField("Put File Name Here");
         Button button = new Button("Run");
-        button.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
-            @Override
-            public void handle(javafx.event.ActionEvent event) {
-                AdvancedPlanner ap = new AdvancedPlanner(textField.getText());
-            }
-        });
+        
         button.setVisible(false);
         Text notFile = new Text("This is not a file!");
         notFile.setVisible(false);
         Text compileError = new Text("Compile Error!");
         compileError.setVisible(false);
         Button compile = new Button("Compile");
+        ComboBox box = new ComboBox();
+        box.addAll("Windows(CMD)", "Linux(Bash)");
+        // box.getValue() = gets the selected text
         compile.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
             @Override
             public void handle(javafx.event.ActionEvent event) {
@@ -114,10 +112,12 @@ public class AdvancedPlannerGui extends Application {
                 }
             }
         });
-
-        WebView browser = new WebView();
-        WebEngine webEngine = browser.getEngine();
-        webEngine.load("compileErrors.html");
+        button.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
+            @Override
+            public void handle(javafx.event.ActionEvent event) {
+                AdvancedPlanner ap = new AdvancedPlanner(textField.getText(), box.getValue());
+            }
+        });
         Button exit = new Button("Exit");
         exit.setVisible(true);
         exit.setOnAction(event -> primStage.fireEvent(new WindowEvent(primStage, WindowEvent.WINDOW_CLOSE_REQUEST)));

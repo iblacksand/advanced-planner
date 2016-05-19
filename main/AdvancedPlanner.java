@@ -19,11 +19,13 @@ public class AdvancedPlanner
 {
     private  int failures;
     private  Script file;
+    private String runTerm;
     private  Scanner in = new Scanner(System.in);
 
-    public AdvancedPlanner(String file){
+    public AdvancedPlanner(String file, String runTerm){
         this.file = new Script(file);
         failures = 0;
+        this.runTerm = runTerm;
         while(runCommandMain());
     }
 
@@ -143,7 +145,8 @@ public class AdvancedPlanner
             String full = combine(objs,true,false);
             try{
                 //For linux ("bash -c " + full);
-                Runtime.getRuntime().exec("cmd /c " + full);
+                // for windows cmd /c
+                Runtime.getRuntime().exec(runTerm + " " + full);
             }
             catch(Exception e)
             {
