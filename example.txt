@@ -1,5 +1,2 @@
-loop .01s 5
-{
-display hello
-}
-display finished
+display this is an example script
+display you are able to view a tutorial at: http://iblacksand.github.io/advanced-planner/Tutorial.html
