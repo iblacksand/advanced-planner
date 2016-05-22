@@ -1,1 +1,3 @@
-run C:\Users\Johnny\IdeaProjects\advanced-planner\example.txt
+display this is an example script
+display you are able to view a tutorial at: http://iblacksand.github.io/advanced-planner/Tutorial.html
+run notepad

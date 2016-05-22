@@ -4,6 +4,7 @@ import file.FileEditor;
 import file.Script;
 import tools.ToolBox;
 
+import javax.tools.Tool;
 import java.util.Scanner;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -24,7 +25,8 @@ public class AdvancedPlanner {
         this.file = new Script(file);
         failures = 0;
         this.runTerm = runTerm;
-        while (runCommandMain()) ;
+        while (runCommandMain());
+        System.out.println("finished");
     }
 
     /**
@@ -90,7 +92,8 @@ public class AdvancedPlanner {
                 break;
         }
         file.nextLine();
-        return file.isLastLine();
+        System.out.println(file.isLastLine());
+        return !file.isLastLine();
     }
 
     /**
@@ -167,9 +170,7 @@ public class AdvancedPlanner {
      */
     public void display(String[] props, String[] objs) {
         pause(props);
-        for (String obj : objs) {
-            System.out.println(obj);
-        }
+        System.out.println(ToolBox.combine(objs, true, false));
     }
 
     /**
