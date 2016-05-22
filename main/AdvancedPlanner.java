@@ -26,7 +26,6 @@ public class AdvancedPlanner {
         failures = 0;
         this.runTerm = runTerm;
         while (runCommandMain());
-        System.out.println("finished");
     }
 
     /**
@@ -92,7 +91,6 @@ public class AdvancedPlanner {
                 break;
         }
         file.nextLine();
-        System.out.println(file.isLastLine());
         return !file.isLastLine();
     }
 
