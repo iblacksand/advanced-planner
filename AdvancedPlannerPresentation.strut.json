@@ -1,0 +1,522 @@
+{
+  "slides": [
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 27,
+          "y": 76,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font color=\"#000000\">Advanced-Planner</font><br>",
+          "size": 120,
+          "selected": false,
+          "skewX": 0
+        },
+        {
+          "TextBox": {},
+          "x": 489,
+          "y": 341,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font color=\"#626262\">John Elizarraras</font><br>",
+          "size": 72,
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": -1,
+          "y": 744,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font>Presentation available at: bit.ly/advplanpres</font>",
+          "size": 18,
+          "selected": false
+        },
+        {
+          "src": "http://i.imgur.com/9KDmc4E.png",
+          "type": "Image",
+          "x": 882,
+          "y": 625,
+          "scale": {
+            "x": 0.705,
+            "y": 0.705,
+            "width": 141,
+            "height": 141
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 854,
+          "y": 604,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font>Project Website</font>",
+          "size": 23,
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 0,
+      "selected": false,
+      "active": false,
+      "x": 148,
+      "y": 162,
+      "markdown": "",
+      "surface": "bg-surf-grad-light",
+      "background": "bg-transparent"
+    },
+    {
+      "components": [],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 1.57,
+      "rotateZ": 0,
+      "index": 1,
+      "selected": false,
+      "active": false,
+      "markdown": "\n\n\n\n#### What is Advanced-Planner?\n\n* Advanced Planner is a way to make your terminal a better tool to help be productive during your day.\n\n* You can easily space and timeout your different console commands for cmd prompt and bash(not tested, yet)\n\n* It makes it easy for people to store scripts in a simple to edit .txt with simple formatting",
+      "x": 126,
+      "y": 509,
+      "background": "bg-transparent",
+      "surface": "bg-surf-grad-sky"
+    },
+    {
+      "components": [],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 2,
+      "selected": false,
+      "active": false,
+      "markdown": "#### What can it do?\n\nAdvanced-Planner can space, repeat and allow tracking of commands using the command prompt, or whatever it is started in.\n\nIt relies on just **4** commands. The biggest and most useful being **run**. This will run commands after it.\nFor example:\n\n```\nrun notepad\n```\n\nThis does have limitations due to windows being horrible at opening things in cmd.",
+      "surface": "bg-surf-grad-grass",
+      "x": 448,
+      "y": 133
+    },
+    {
+      "components": [],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": -1.57,
+      "rotateZ": 0,
+      "index": 3,
+      "selected": false,
+      "active": false,
+      "surface": "bg-surf-grad-darkgreen",
+      "markdown": "#### Other commands\n\nAdvanced-Planner also has the **loop** command. This is in the syntax:\n```\nloop time amount\n```\n\nIt also features **display** which is as simple as it sounds\n\nExample:\n```\nloop 2s 5\n{\ndisplay Starting NotePad\nrun notepad\n}\n```",
+      "x": 433,
+      "y": 372
+    },
+    {
+      "components": [],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 4,
+      "selected": false,
+      "active": false,
+      "markdown": "#### Other features\n\nAdvanced-Planner features properties, which is a tag that can be attached to any command to have a delay from the command before, or what ever you put\n\nUnfortunately, right now it only supports delays\n```\nrun.prop(5s)\n```\n\nThis would delay run for 5 seconds.\n\n\nIt also has **alias** which will allow you to run another advanced-planner script.\n\n```\nalias script/script.txt\n```\n\nthis would run script.txt when it went to that line",
+      "background": "bg-transparent",
+      "surface": "bg-surf-grad-orange",
+      "x": 725,
+      "y": 209
+    },
+    {
+      "components": [
+        {
+          "src": "http://iblacksand.github.io/advanced-planner/compileErrors.html",
+          "type": "WebFrame",
+          "x": 151,
+          "y": 156,
+          "scale": {
+            "x": 0.765625,
+            "y": 0.765625,
+            "width": 735,
+            "height": 588
+          },
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 5,
+      "selected": false,
+      "active": false,
+      "markdown": "\n#### The Compiler (well sort of)\n\nWhile it is not technically a compiler, it does change the input code into a more simplified version. The compiler will check your syntax and will make a report for you.\n",
+      "x": 734,
+      "y": 510,
+      "surface": "bg-surf-grad-salmon"
+    },
+    {
+      "components": [
+        {
+          "src": "http://iblacksand.github.io/advanced-planner/CompilerHub.html",
+          "type": "WebFrame",
+          "x": 123,
+          "y": 158,
+          "scale": {
+            "x": 0.7708333333333334,
+            "y": 0.7708333333333334,
+            "width": 740,
+            "height": 592
+          },
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 1.57,
+      "rotateZ": 0,
+      "index": 6,
+      "selected": false,
+      "active": false,
+      "markdown": "\n#### Online Compiler\nThere is an online compiler on the project website(http://iblacksand.github.io/advanced-planner/).\n",
+      "x": 1027,
+      "y": 96,
+      "surface": "bg-surf-grad-lavender"
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 416,
+          "y": 70,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<a href=\"https://github.com/iblacksand/advanced-planner/archive/updated-presentation.zip\" target=\"_blank\">Download</a><br>",
+          "size": 42,
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 1.57,
+      "rotateZ": 0,
+      "index": 7,
+      "selected": false,
+      "active": false,
+      "markdown": "#### Live Demonstration",
+      "x": 1009,
+      "y": 340
+    },
+    {
+      "components": [],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": -1.57,
+      "rotateZ": 0,
+      "index": 8,
+      "selected": false,
+      "active": false,
+      "x": 1243,
+      "y": 506,
+      "surface": "bg-custom-c77d06",
+      "markdown": "#### Issues and Complications\n\nThe biggest issue for me is that lack of properties that would make things easier, as well as no support for linux. This project has made me grow towards linux without even using it. \n\nProperties are not compilable(although it won't break anything) and delaying is the only function they have.\n\nAnother issue is that the way I close the window doesn't work on some computers(such as the school computers) but it seems to work on all updated computers so there is not much I can do."
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 257,
+          "y": 28,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font>Source and Links</font>",
+          "size": 72,
+          "selected": false
+        },
+        {
+          "src": "http://i.imgur.com/gWo8pz0.png",
+          "type": "Image",
+          "x": 66,
+          "y": 220,
+          "scale": {
+            "x": 0.755,
+            "y": 0.755,
+            "width": 151,
+            "height": 151
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 42,
+          "y": 163,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font>GitHub Source</font>",
+          "size": 35,
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 800,
+          "y": 180,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font>Strut.io</font>",
+          "size": 42,
+          "selected": false
+        },
+        {
+          "src": "http://i.imgur.com/vno0DRM.png",
+          "type": "Image",
+          "x": 807,
+          "y": 229,
+          "scale": {
+            "x": 0.665,
+            "y": 0.665,
+            "width": 133,
+            "height": 133
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "src": "http://i.imgur.com/AmTxQJ3.png",
+          "type": "Image",
+          "x": 351,
+          "y": 224,
+          "scale": {
+            "x": 0.725,
+            "y": 0.725,
+            "width": 145,
+            "height": 145
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 316,
+          "y": 164,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font>Latest Release</font>",
+          "size": 33,
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 3,
+          "y": 746,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font>Presentation available at: bit.ly/advplanpres</font>",
+          "size": 18,
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 9,
+      "selected": true,
+      "active": true,
+      "surface": "bg-surf-grad-yellow",
+      "x": 2700,
+      "y": 460
+    }
+  ],
+  "background": "bg-transparent",
+  "activeSlide": {
+    "components": [
+      {
+        "TextBox": {},
+        "x": 257,
+        "y": 28,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "text": "<font>Source and Links</font>",
+        "size": 72,
+        "selected": false
+      },
+      {
+        "src": "http://i.imgur.com/gWo8pz0.png",
+        "type": "Image",
+        "x": 66,
+        "y": 220,
+        "scale": {
+          "x": 0.755,
+          "y": 0.755,
+          "width": 151,
+          "height": 151
+        },
+        "imageType": "PNG",
+        "selected": false
+      },
+      {
+        "TextBox": {},
+        "x": 42,
+        "y": 163,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "text": "<font>GitHub Source</font>",
+        "size": 35,
+        "selected": false
+      },
+      {
+        "TextBox": {},
+        "x": 800,
+        "y": 180,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "text": "<font>Strut.io</font>",
+        "size": 42,
+        "selected": false
+      },
+      {
+        "src": "http://i.imgur.com/vno0DRM.png",
+        "type": "Image",
+        "x": 807,
+        "y": 229,
+        "scale": {
+          "x": 0.665,
+          "y": 0.665,
+          "width": 133,
+          "height": 133
+        },
+        "imageType": "PNG",
+        "selected": false
+      },
+      {
+        "src": "http://i.imgur.com/AmTxQJ3.png",
+        "type": "Image",
+        "x": 351,
+        "y": 224,
+        "scale": {
+          "x": 0.725,
+          "y": 0.725,
+          "width": 145,
+          "height": 145
+        },
+        "imageType": "PNG",
+        "selected": false
+      },
+      {
+        "TextBox": {},
+        "x": 316,
+        "y": 164,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "text": "<font>Latest Release</font>",
+        "size": 33,
+        "selected": false
+      },
+      {
+        "TextBox": {},
+        "x": 3,
+        "y": 746,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "text": "<font>Presentation available at: bit.ly/advplanpres</font>",
+        "size": 18,
+        "selected": false
+      }
+    ],
+    "z": 0,
+    "impScale": 3,
+    "rotateX": 0,
+    "rotateY": 0,
+    "rotateZ": 0,
+    "index": 9,
+    "selected": true,
+    "active": true,
+    "surface": "bg-surf-grad-yellow",
+    "x": 2700,
+    "y": 460
+  },
+  "fileName": "AdvancedPlannerPresentation.strut",
+  "surface": "bg-surf-grad-purple",
+  "customStylesheet": "/*.example {\n\tborder: 4px groove orange;\n}*/",
+  "deckVersion": "1.0",
+  "customBackgrounds": {
+    "bgs": [
+      {
+        "klass": "bg-custom-4a68a5",
+        "style": "#4a68a5"
+      },
+      {
+        "klass": "bg-custom-838383",
+        "style": "#838383"
+      },
+      {
+        "klass": "bg-custom-ffa108",
+        "style": "#ffa108"
+      },
+      {
+        "klass": "bg-custom-c77d06",
+        "style": "#c77d06"
+      }
+    ]
+  },
+  "overviewX": 684.5,
+  "overviewY": 303
+}
