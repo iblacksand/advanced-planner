@@ -1,7 +1,5 @@
 package gui;
 
-import java.math.BigDecimal;
-import java.text.NumberFormat;
 import javafx.beans.binding.NumberBinding;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -17,7 +15,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
-import javax.swing.JSpinner;
+
+import javax.swing.*;
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 /**
  * JavaFX Control that behaves like a {@link JSpinner} known in Swing. The
@@ -35,13 +36,13 @@ public class NumberSpinner extends HBox {
     public static final String SPINNER_BUTTON_UP = "SpinnerButtonUp";
     public static final String SPINNER_BUTTON_DOWN = "SpinnerButtonDown";
     private final String BUTTONS_BOX = "ButtonsBox";
-    private NumberTextField numberField;
-    private ObjectProperty<BigDecimal> stepWitdhProperty = new SimpleObjectProperty<>();
     private final double ARROW_SIZE = 4;
     private final Button incrementButton;
     private final Button decrementButton;
     private final NumberBinding buttonHeight;
     private final NumberBinding spacing;
+    private NumberTextField numberField;
+    private ObjectProperty<BigDecimal> stepWitdhProperty = new SimpleObjectProperty<>();
 
     public NumberSpinner() {
         this(BigDecimal.ZERO, BigDecimal.ONE);
@@ -165,16 +166,16 @@ public class NumberSpinner extends HBox {
         numberField.setNumber(value);
     }
 
-    public final void setNumber(BigDecimal value) {
-        numberField.setNumber(value);
-    }
-
     public ObjectProperty<BigDecimal> numberProperty() {
         return numberField.numberProperty();
     }
 
     public final BigDecimal getNumber() {
         return numberField.getNumber();
+    }
+
+    public final void setNumber(BigDecimal value) {
+        numberField.setNumber(value);
     }
 
     // debugging layout bounds

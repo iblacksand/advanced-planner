@@ -10,9 +10,9 @@ import java.awt.event.WindowEvent;
 /**
  * Created by John Elizarraras on 3/5/2016.
  */
-public class GuiWindow extends JFrame{
+public class GuiWindow extends JFrame {
 
-    public GuiWindow(String input){
+    public GuiWindow(String input) {
         super("Advanced Planner");
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -25,14 +25,14 @@ public class GuiWindow extends JFrame{
         });
         JTextField textField = new JTextField("Write Code Here");
         add(textField);
-        final JLabel test  =new JLabel();
+        final JLabel test = new JLabel();
         test.setText("Hello");
         add(test);
         final JButton btn = new JButton("Exit");
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               JLabel temp = new JLabel(textField.getText());
+                JLabel temp = new JLabel(textField.getText());
                 add(temp);
                 pack();
             }

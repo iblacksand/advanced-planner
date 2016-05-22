@@ -1,8 +1,5 @@
 package gui;
 
-import java.math.BigDecimal;
-import java.text.NumberFormat;
-import java.text.ParseException;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
@@ -10,6 +7,10 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
+
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.text.ParseException;
 
 /**
  * Textfield implementation that accepts formatted number and stores them in a
@@ -22,18 +23,6 @@ public class NumberTextField extends TextField {
 
     private final NumberFormat nf;
     private ObjectProperty<BigDecimal> number = new SimpleObjectProperty<>();
-
-    public final BigDecimal getNumber() {
-        return number.get();
-    }
-
-    public final void setNumber(BigDecimal value) {
-        number.set(value);
-    }
-
-    public ObjectProperty<BigDecimal> numberProperty() {
-        return number;
-    }
 
     public NumberTextField() {
         this(BigDecimal.ZERO);
@@ -49,6 +38,18 @@ public class NumberTextField extends TextField {
         this.nf = nf;
         initHandlers();
         setNumber(value);
+    }
+
+    public final BigDecimal getNumber() {
+        return number.get();
+    }
+
+    public final void setNumber(BigDecimal value) {
+        number.set(value);
+    }
+
+    public ObjectProperty<BigDecimal> numberProperty() {
+        return number;
     }
 
     private void initHandlers() {

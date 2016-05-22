@@ -1,2 +1,1 @@
-run notepad
-display hello world
+run C:\Users\Johnny\IdeaProjects\advanced-planner\example.txt

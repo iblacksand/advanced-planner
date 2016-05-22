@@ -1,65 +1,60 @@
 package main;
 
-import file.Script;
 import file.FileEditor;
+import file.Script;
 import tools.ToolBox;
 
 import java.util.Scanner;
-import java.util.StringJoiner;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 /**
- *the base of the advanced planner
- *@author John Elizarraras
- *@version Feb. 1 2016
+ * the base of the advanced planner
+ *
+ * @author John Elizarraras
+ * @version Feb. 1 2016
  */
-public class AdvancedPlanner
-{
-    private  int failures;
-    private  Script file;
+public class AdvancedPlanner {
+    private int failures;
+    private Script file;
     private String runTerm;
-    private  Scanner in = new Scanner(System.in);
+    private Scanner in = new Scanner(System.in);
 
-    public AdvancedPlanner(String file, String runTerm){
+    public AdvancedPlanner(String file, String runTerm) {
         this.file = new Script(file);
         failures = 0;
         this.runTerm = runTerm;
-        while(runCommandMain());
+        while (runCommandMain()) ;
     }
 
     /**
      * sets the path of the file
+     *
      * @param path the new path of the file.
      */
-    public  void setPath(String path)
-    {
+    public void setPath(String path) {
         file = new Script(path);
     }
 
     /**
-     *the method that loops the code for the specified amount
-     *@param props the properties of the loop
-     *@param object array holding the information of the loop
+     * the method that loops the code for the specified amount
+     *
+     * @param props  the properties of the loop
+     * @param object array holding the information of the loop
      */
-    public void loop(String[] props,String[] object)
-    {
+    public void loop(String[] props, String[] object) {
         pause(props);
         file.toLine(file.currentLine() + 2);
         int startLine = file.currentLine();
         int loopEnd = startLine;
-        for(int i = startLine; i < file.length(); i++)
-        {
+        for (int i = startLine; i < file.length(); i++) {
             String str = file.fullLine();
-            if(str.equals("}")) break;
+            if (str.equals("}")) break;
             else loopEnd++;
         }
         final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        for(int i = 0; i < Integer.parseInt(object[1]); i++)
-        {
-            for(int p = startLine; p < loopEnd; p++)
-            {
+        for (int i = 0; i < Integer.parseInt(object[1]); i++) {
+            for (int p = startLine; p < loopEnd; p++) {
                 runCommand(p);
                 ToolBox.pause(convertTime(object[0]));
             }
@@ -67,89 +62,83 @@ public class AdvancedPlanner
         file.toLine(loopEnd);
     }
 
-    public void alias(String[] props, String[] objs){
+    public void alias(String[] props, String[] objs) {
         String file = combine(objs, true, false);
-        new AdvancedPlanner(file);
+        new AdvancedPlanner(file, runTerm);
     }
 
     /**
-     *runs the commands in the script
-     *@return the boolean if the file is on its line
+     * runs the commands in the script
+     *
+     * @return the boolean if the file is on its line
      */
-    public boolean runCommandMain()
-    {
+    public boolean runCommandMain() {
         String command = file.command();
         String[] props = file.properties();
         String[] object = file.object();
-        switch(command)
-        {
+        switch (command) {
             case "loop":
-            loop(props,object);
-            break;
+                loop(props, object);
+                break;
             case "run":
-            run(props,object);
-            break;
+                run(props, object);
+                break;
             case "display":
-            display(props,object);
-            break;
+                display(props, object);
+                break;
             default:
-            break;
+                break;
         }
         file.nextLine();
         return file.isLastLine();
     }
 
     /**
-     *runs the command on the specified line
-     *@param k the line to look at
+     * runs the command on the specified line
+     *
+     * @param k the line to look at
      */
-    public void runCommand(int k)
-    {
-        if(k < file.length() && k > 0)
-        {
+    public void runCommand(int k) {
+        if (k < file.length() && k > 0) {
             String command = file.command(k);
             String[] props = file.properties(k);
             String[] object = file.object(k);
-            switch(command)
-            {
+            switch (command) {
                 case "loop":
-                loop(props,object);
-                break;
+                    loop(props, object);
+                    break;
                 case "run":
-                run(props,object);
-                break;
+                    run(props, object);
+                    break;
                 case "display":
-                display(props,object);
-                break;
+                    display(props, object);
+                    break;
                 default:
-                break;
+                    break;
             }
-        }
-        else failures++;
+        } else failures++;
     }
 
     /**
      * runs a program
+     *
      * @param props the properties of the program
-     * @param objs the name of the program
+     * @param objs  the name of the program
      */
-    public void run(String[] props, String[] objs)
-    {
-        if(contains(props,"f") && failures > 0)
-        {
+    public void run(String[] props, String[] objs) {
+        if (contains(props, "f") && failures > 0) {
             System.out.println("Error! Fragile with " + failures + "failures");
-        }
-        else
-        {
+        } else {
             pause(props);
-            String full = combine(objs,true,false);
-            try{
+            String full = combine(objs, true, false);
+            try {
                 //For linux ("bash -c " + full);
                 // for windows cmd /c
-                Runtime.getRuntime().exec(runTerm + " " + full);
-            }
-            catch(Exception e)
-            {
+//                Runtime.getRuntime().exec(runTerm + " " + full);
+//                System.out.println("Runtime.getRuntime().exec(" + runTerm + " " + "\" \"" + full + ");");
+                Runtime rt = Runtime.getRuntime();
+                rt.exec("cmd.exe /c start cmd /k " + full);
+            } catch (Exception e) {
                 failures++;
             }
         }
@@ -157,12 +146,12 @@ public class AdvancedPlanner
 
     /**
      * checks if the string array contains the other string
+     *
      * @param strA the String[] to search in
      * @param find the string to search for
      * @return true if the string[] contains the string
      */
-    public boolean contains(String[] strA, String find)
-    {
+    public boolean contains(String[] strA, String find) {
         boolean result = false;
         for (String aStrA : strA) {
             if (aStrA.equalsIgnoreCase(find)) result = true;
@@ -172,11 +161,11 @@ public class AdvancedPlanner
 
     /**
      * displays the objects created
+     *
      * @param props the properties of the text
-     * @param objs the text to display
+     * @param objs  the text to display
      */
-    public void display(String[] props, String[] objs)
-    {
+    public void display(String[] props, String[] objs) {
         pause(props);
         for (String obj : objs) {
             System.out.println(obj);
@@ -185,27 +174,27 @@ public class AdvancedPlanner
 
     /**
      * allows for editing of the specified script
+     *
      * @param props the properties of the command
-     * @param objs the object of the command 
+     * @param objs  the object of the command
      */
-    public void fixScript(String[] props, String[] objs)
-    {
+    public void fixScript(String[] props, String[] objs) {
         System.out.println("What is the path to change?");
         FileEditor fe = new FileEditor(in.nextLine());
     }
 
     /**
      * combines an String array into one
-     * @param ary the array to combine
+     *
+     * @param ary        the array to combine
      * @param toAddSpace boolean whether or not to add a space
-     * @param newLines boolean wheter or not to put \n after each string
+     * @param newLines   boolean wheter or not to put \n after each string
      * @return the String array combined into one
      */
-    public String combine(String[] ary, boolean toAddSpace, boolean newLines)
-    {
+    public String combine(String[] ary, boolean toAddSpace, boolean newLines) {
         String params = "";
-        if(toAddSpace) params += " ";
-        if(newLines) params += "\n";
+        if (toAddSpace) params += " ";
+        if (newLines) params += "\n";
         String full = "";
         for (String anAry : ary) {
             full += anAry + params;
@@ -216,79 +205,79 @@ public class AdvancedPlanner
     /**
      * adds a failure if needed
      */
-    public void addFailure(){
+    public void addFailure() {
         failures++;
     }
 
     /**
      * converts the string input into milliseconds
+     *
      * @param input the string to convert
      * @return the string in millisecond form or zero if input is not in correct format
      */
-    public int convertTime(String input){
-        if(isNumber(input.substring(0,input.length() -1))) {
-            double retVal = Integer.parseInt(input.substring(0,input.length() -1));
+    public int convertTime(String input) {
+        if (isNumber(input.substring(0, input.length() - 1))) {
+            double retVal = Integer.parseInt(input.substring(0, input.length() - 1));
             switch (input.substring(input.length() - 1).toLowerCase().trim()) {
                 case "m":
-                retVal *= 60000;
-                break;
+                    retVal *= 60000;
+                    break;
                 case "h":
-                retVal *= 360000;
-                break;
+                    retVal *= 360000;
+                    break;
                 case "s":
-                retVal *= 1000;
-                break;
+                    retVal *= 1000;
+                    break;
                 default:
-                retVal = 0;
-                break;
+                    retVal = 0;
+                    break;
             }
-            return (int)retVal;
-        }
-        else{
+            return (int) retVal;
+        } else {
             return 0;
         }
     }
 
     /**
      * checks if the string is an int
+     *
      * @param str the possible number to check
      * @return true if inputted string is a int.
      */
-    private boolean isNumber(String str){
+    private boolean isNumber(String str) {
         boolean result = false;
-        try{
+        try {
             Integer.parseInt(str);
             result = true;
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             result = false;
         }
         return result;
     }
 
-    private void pause(String[] possible){
-        for(String str : possible){
-            if(validTime(str)){
+    private void pause(String[] possible) {
+        for (String str : possible) {
+            if (validTime(str)) {
                 ToolBox.pause(convertTime(str));
             }
         }
     }
 
-    public boolean validTime(String input){
+    public boolean validTime(String input) {
         boolean retVal = false;
         switch (input.substring(input.length() - 1).toLowerCase().trim()) {
             case "m":
-            retVal = true;
-            break;
+                retVal = true;
+                break;
             case "h":
-            retVal = true;
-            break;
+                retVal = true;
+                break;
             case "s":
-            retVal = true;
-            break;
+                retVal = true;
+                break;
             default:
-            retVal = false;
-            break;
+                retVal = false;
+                break;
         }
         return retVal;
     }

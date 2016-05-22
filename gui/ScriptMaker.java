@@ -15,20 +15,21 @@ import javafx.stage.Stage;
 /**
  * Created by John Elizarraras on 4/3/2016.
  */
-public class ScriptMaker extends Application{
+public class ScriptMaker extends Application {
     String title;
     String path;
-    public ScriptMaker(String path){
+
+    public ScriptMaker(String path) {
         title = "Editing: " + path;
         this.path = path;
         start(new Stage());
     }
 
-    public void start(Stage primStage){
+    public void start(Stage primStage) {
         NumberSpinner numSpin = new NumberSpinner();
         FileEditor fileEditor = new FileEditor(path);
         BorderPane borderPane = new BorderPane();
-        borderPane.setPadding(new Insets(20,0,20,20));
+        borderPane.setPadding(new Insets(20, 0, 20, 20));
         primStage.setTitle(title);
         TextField textField = new TextField("Put Line Here");
         Button exit = new Button("Exit");
@@ -47,7 +48,7 @@ public class ScriptMaker extends Application{
         });
         HBox hBox = new HBox();
         hBox.setSpacing(10);
-        hBox.setPadding(new Insets(0,20,10,20));
+        hBox.setPadding(new Insets(0, 20, 10, 20));
         hBox.getChildren().addAll(textField, add, exit, numSpin);
         borderPane.setCenter(hBox);
         Scene scene = new Scene(borderPane, 800, 600);
