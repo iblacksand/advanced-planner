@@ -84,7 +84,8 @@ public class AdvancedPlannerGui extends Application {
         compile.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
             @Override
             public void handle(javafx.event.ActionEvent event) {
-                final int e = errors(textField.getText());
+                Compiler ef = new Compiler(textField.getText());
+                int e = ef.errors();
                 if (isFile(textField.getText()) && e < 1) {
                     button.setVisible(true);
                     notFile.setVisible(false);
@@ -153,15 +154,6 @@ public class AdvancedPlannerGui extends Application {
             res = false;
         }
         return res;
-    }
-
-    private int errors(String file) {
-        int ef = 0;
-        if (isFile(file)) {
-            Compiler comp = new Compiler(file);
-            ef = comp.errors();
-        }
-        return ef;
     }
 }
 

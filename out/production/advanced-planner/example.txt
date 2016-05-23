@@ -1,3 +1,8 @@
 display this is an example script
 display you are able to view a tutorial at: http://iblacksand.github.io/advanced-planner/Tutorial.html
-run notepad
+jasdfjkl;sdfjkl;asdfkl]
+asdfhjklpasdf
+asdf
+asdf
+loop 5 5 
+}
