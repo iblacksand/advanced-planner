@@ -58,8 +58,8 @@
         },
         {
           "TextBox": {},
-          "x": 854,
-          "y": 604,
+          "x": 843,
+          "y": 565,
           "scale": {
             "x": 1,
             "y": 1
@@ -68,6 +68,20 @@
           "text": "<font>Project Website</font>",
           "size": 23,
           "selected": false
+        },
+        {
+          "src": "https://i.imgsafe.org/5bca2f7.png",
+          "type": "Image",
+          "x": 74,
+          "y": 394,
+          "scale": {
+            "x": 0.6,
+            "y": 0.6,
+            "width": 120,
+            "height": 120
+          },
+          "imageType": "PNG",
+          "selected": true
         }
       ],
       "z": 0,
@@ -76,8 +90,8 @@
       "rotateY": 0,
       "rotateZ": 0,
       "index": 0,
-      "selected": false,
-      "active": false,
+      "selected": true,
+      "active": true,
       "x": 148,
       "y": 162,
       "markdown": "",
@@ -245,7 +259,7 @@
       "x": 1243,
       "y": 506,
       "surface": "bg-custom-c77d06",
-      "markdown": "#### Issues and Complications\n\nThe biggest issue for me is that lack of properties that would make things easier, as well as no support for linux. This project has made me grow towards linux without even using it. \n\nProperties are not compilable(although it won't break anything) and delaying is the only function they have.\n\nAnother issue is that the way I close the window doesn't work on some computers(such as the school computers) but it seems to work on all updated computers so there is not much I can do."
+      "markdown": "#### Issues and Complications\n\n* The biggest issue for me is that lack of properties that would make things easier, as well as no support for linux. This project has made me grow towards linux without even using it. \n\n* Properties are not compilable(although it won't break anything) and delaying is the only function they have.\n\n* Another issue is that the way I close the window doesn't work on some computers(such as the school computers) but it seems to work on all updated computers so there is not much I can do.\n\n* Also it uses the latest version of JavaFX which means it won't work on some computers. "
     },
     {
       "components": [
@@ -278,8 +292,8 @@
         },
         {
           "TextBox": {},
-          "x": 42,
-          "y": 163,
+          "x": 58,
+          "y": 158,
           "scale": {
             "x": 1,
             "y": 1
@@ -291,8 +305,8 @@
         },
         {
           "TextBox": {},
-          "x": 800,
-          "y": 180,
+          "x": 797,
+          "y": 173,
           "scale": {
             "x": 1,
             "y": 1
@@ -355,6 +369,48 @@
           "text": "<font>Presentation available at: bit.ly/advplanpres</font>",
           "size": 18,
           "selected": false
+        },
+        {
+          "src": "https://i.imgsafe.org/8ca47eb.png",
+          "type": "Image",
+          "x": 779,
+          "y": 562,
+          "scale": {
+            "x": 0.69,
+            "y": 0.69,
+            "width": 138,
+            "height": 138
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "src": "https://i.imgsafe.org/ebf269c.png",
+          "type": "Image",
+          "x": 45,
+          "y": 526,
+          "scale": {
+            "x": 0.875,
+            "y": 0.875,
+            "width": 175,
+            "height": 175
+          },
+          "imageType": "PNG",
+          "selected": false
+        },
+        {
+          "src": "https://i.imgsafe.org/213b999.png",
+          "type": "Image",
+          "x": 367,
+          "y": 534,
+          "scale": {
+            "x": 0.81,
+            "y": 0.81,
+            "width": 162,
+            "height": 162
+          },
+          "imageType": "PNG",
+          "selected": false
         }
       ],
       "z": 0,
@@ -363,8 +419,8 @@
       "rotateY": 0,
       "rotateZ": 0,
       "index": 9,
-      "selected": true,
-      "active": true,
+      "selected": false,
+      "active": false,
       "surface": "bg-surf-grad-yellow",
       "x": 2700,
       "y": 460
@@ -375,102 +431,35 @@
     "components": [
       {
         "TextBox": {},
-        "x": 257,
-        "y": 28,
+        "x": 27,
+        "y": 76,
         "scale": {
           "x": 1,
           "y": 1
         },
         "type": "TextBox",
-        "text": "<font>Source and Links</font>",
+        "text": "<font color=\"#000000\">Advanced-Planner</font><br>",
+        "size": 120,
+        "selected": false,
+        "skewX": 0
+      },
+      {
+        "TextBox": {},
+        "x": 489,
+        "y": 341,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "text": "<font color=\"#626262\">John Elizarraras</font><br>",
         "size": 72,
         "selected": false
       },
       {
-        "src": "http://i.imgur.com/gWo8pz0.png",
-        "type": "Image",
-        "x": 66,
-        "y": 220,
-        "scale": {
-          "x": 0.755,
-          "y": 0.755,
-          "width": 151,
-          "height": 151
-        },
-        "imageType": "PNG",
-        "selected": false
-      },
-      {
         "TextBox": {},
-        "x": 42,
-        "y": 163,
-        "scale": {
-          "x": 1,
-          "y": 1
-        },
-        "type": "TextBox",
-        "text": "<font>GitHub Source</font>",
-        "size": 35,
-        "selected": false
-      },
-      {
-        "TextBox": {},
-        "x": 800,
-        "y": 180,
-        "scale": {
-          "x": 1,
-          "y": 1
-        },
-        "type": "TextBox",
-        "text": "<font>Strut.io</font>",
-        "size": 42,
-        "selected": false
-      },
-      {
-        "src": "http://i.imgur.com/vno0DRM.png",
-        "type": "Image",
-        "x": 807,
-        "y": 229,
-        "scale": {
-          "x": 0.665,
-          "y": 0.665,
-          "width": 133,
-          "height": 133
-        },
-        "imageType": "PNG",
-        "selected": false
-      },
-      {
-        "src": "http://i.imgur.com/AmTxQJ3.png",
-        "type": "Image",
-        "x": 351,
-        "y": 224,
-        "scale": {
-          "x": 0.725,
-          "y": 0.725,
-          "width": 145,
-          "height": 145
-        },
-        "imageType": "PNG",
-        "selected": false
-      },
-      {
-        "TextBox": {},
-        "x": 316,
-        "y": 164,
-        "scale": {
-          "x": 1,
-          "y": 1
-        },
-        "type": "TextBox",
-        "text": "<font>Latest Release</font>",
-        "size": 33,
-        "selected": false
-      },
-      {
-        "TextBox": {},
-        "x": 3,
-        "y": 746,
+        "x": -1,
+        "y": 744,
         "scale": {
           "x": 1,
           "y": 1
@@ -479,6 +468,47 @@
         "text": "<font>Presentation available at: bit.ly/advplanpres</font>",
         "size": 18,
         "selected": false
+      },
+      {
+        "src": "http://i.imgur.com/9KDmc4E.png",
+        "type": "Image",
+        "x": 882,
+        "y": 625,
+        "scale": {
+          "x": 0.705,
+          "y": 0.705,
+          "width": 141,
+          "height": 141
+        },
+        "imageType": "PNG",
+        "selected": false
+      },
+      {
+        "TextBox": {},
+        "x": 843,
+        "y": 565,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "text": "<font>Project Website</font>",
+        "size": 23,
+        "selected": false
+      },
+      {
+        "src": "https://i.imgsafe.org/5bca2f7.png",
+        "type": "Image",
+        "x": 74,
+        "y": 394,
+        "scale": {
+          "x": 0.6,
+          "y": 0.6,
+          "width": 120,
+          "height": 120
+        },
+        "imageType": "PNG",
+        "selected": true
       }
     ],
     "z": 0,
@@ -486,12 +516,14 @@
     "rotateX": 0,
     "rotateY": 0,
     "rotateZ": 0,
-    "index": 9,
+    "index": 0,
     "selected": true,
     "active": true,
-    "surface": "bg-surf-grad-yellow",
-    "x": 2700,
-    "y": 460
+    "x": 148,
+    "y": 162,
+    "markdown": "",
+    "surface": "bg-surf-grad-light",
+    "background": "bg-transparent"
   },
   "fileName": "AdvancedPlannerPresentation.strut",
   "surface": "bg-surf-grad-purple",
@@ -500,23 +532,11 @@
   "customBackgrounds": {
     "bgs": [
       {
-        "klass": "bg-custom-4a68a5",
-        "style": "#4a68a5"
-      },
-      {
-        "klass": "bg-custom-838383",
-        "style": "#838383"
-      },
-      {
-        "klass": "bg-custom-ffa108",
-        "style": "#ffa108"
-      },
-      {
         "klass": "bg-custom-c77d06",
         "style": "#c77d06"
       }
     ]
   },
-  "overviewX": 684.5,
+  "overviewX": 1413,
   "overviewY": 303
 }
