@@ -31,8 +31,8 @@
         },
         {
           "TextBox": {},
-          "x": -1,
-          "y": 744,
+          "x": 5,
+          "y": 3,
           "scale": {
             "x": 1,
             "y": 1
@@ -40,20 +40,6 @@
           "type": "TextBox",
           "text": "<font>Presentation available at: bit.ly/advplanpres</font>",
           "size": 18,
-          "selected": false
-        },
-        {
-          "src": "http://i.imgur.com/9KDmc4E.png",
-          "type": "Image",
-          "x": 882,
-          "y": 625,
-          "scale": {
-            "x": 0.705,
-            "y": 0.705,
-            "width": 141,
-            "height": 141
-          },
-          "imageType": "PNG",
           "selected": false
         },
         {
@@ -72,16 +58,29 @@
         {
           "src": "https://i.imgsafe.org/5bca2f7.png",
           "type": "Image",
-          "x": 74,
-          "y": 394,
+          "x": 853,
+          "y": 602,
           "scale": {
-            "x": 0.6,
-            "y": 0.6,
-            "width": 120,
-            "height": 120
+            "x": 0.78,
+            "y": 0.78,
+            "width": 156,
+            "height": 156
           },
           "imageType": "PNG",
-          "selected": true
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 104,
+          "y": 739,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font>There are qr codes throughout, so get your scanners if you want to go to the links</font>",
+          "size": 21,
+          "selected": false
         }
       ],
       "z": 0,
@@ -90,8 +89,8 @@
       "rotateY": 0,
       "rotateZ": 0,
       "index": 0,
-      "selected": true,
-      "active": true,
+      "selected": false,
+      "active": false,
       "x": 148,
       "y": 162,
       "markdown": "",
@@ -103,14 +102,14 @@
       "z": 0,
       "impScale": 3,
       "rotateX": 0,
-      "rotateY": 1.57,
+      "rotateY": 0,
       "rotateZ": 0,
       "index": 1,
       "selected": false,
       "active": false,
       "markdown": "\n\n\n\n#### What is Advanced-Planner?\n\n* Advanced Planner is a way to make your terminal a better tool to help be productive during your day.\n\n* You can easily space and timeout your different console commands for cmd prompt and bash(not tested, yet)\n\n* It makes it easy for people to store scripts in a simple to edit .txt with simple formatting",
       "x": 126,
-      "y": 509,
+      "y": 508,
       "background": "bg-transparent",
       "surface": "bg-surf-grad-sky"
     },
@@ -134,22 +133,22 @@
       "z": 0,
       "impScale": 3,
       "rotateX": 0,
-      "rotateY": -1.57,
+      "rotateY": 3.14,
       "rotateZ": 0,
       "index": 3,
       "selected": false,
       "active": false,
       "surface": "bg-surf-grad-darkgreen",
       "markdown": "#### Other commands\n\nAdvanced-Planner also has the **loop** command. This is in the syntax:\n```\nloop time amount\n```\n\nIt also features **display** which is as simple as it sounds\n\nExample:\n```\nloop 2s 5\n{\ndisplay Starting NotePad\nrun notepad\n}\n```",
-      "x": 433,
-      "y": 372
+      "x": 447,
+      "y": 348
     },
     {
       "components": [],
       "z": 0,
       "impScale": 3,
       "rotateX": 0,
-      "rotateY": 0,
+      "rotateY": 3.14,
       "rotateZ": 0,
       "index": 4,
       "selected": false,
@@ -185,7 +184,7 @@
       "selected": false,
       "active": false,
       "markdown": "\n#### The Compiler (well sort of)\n\nWhile it is not technically a compiler, it does change the input code into a more simplified version. The compiler will check your syntax and will make a report for you.\n",
-      "x": 734,
+      "x": 735,
       "y": 510,
       "surface": "bg-surf-grad-salmon"
     },
@@ -208,7 +207,7 @@
       "z": 0,
       "impScale": 3,
       "rotateX": 0,
-      "rotateY": 1.57,
+      "rotateY": 0,
       "rotateZ": 0,
       "index": 6,
       "selected": false,
@@ -229,7 +228,7 @@
             "y": 1
           },
           "type": "TextBox",
-          "text": "<a href=\"https://github.com/iblacksand/advanced-planner/archive/updated-presentation.zip\" target=\"_blank\">Download</a><br>",
+          "text": "<a href=\"https://github.com/iblacksand/advanced-planner/archive/fixed-presentation.zip\" target=\"_blank\">Download</a><br>",
           "size": 42,
           "selected": false
         }
@@ -237,21 +236,22 @@
       "z": 0,
       "impScale": 3,
       "rotateX": 0,
-      "rotateY": 1.57,
+      "rotateY": 3.14,
       "rotateZ": 0,
       "index": 7,
       "selected": false,
       "active": false,
       "markdown": "#### Live Demonstration",
-      "x": 1009,
-      "y": 340
+      "x": 984,
+      "y": 328,
+      "surface": "bg-surf-grad-sky"
     },
     {
       "components": [],
       "z": 0,
       "impScale": 3,
       "rotateX": 0,
-      "rotateY": -1.57,
+      "rotateY": 3.14,
       "rotateZ": 0,
       "index": 8,
       "selected": false,
@@ -274,20 +274,6 @@
           "type": "TextBox",
           "text": "<font>Source and Links</font>",
           "size": 72,
-          "selected": false
-        },
-        {
-          "src": "http://i.imgur.com/gWo8pz0.png",
-          "type": "Image",
-          "x": 66,
-          "y": 220,
-          "scale": {
-            "x": 0.755,
-            "y": 0.755,
-            "width": 151,
-            "height": 151
-          },
-          "imageType": "PNG",
           "selected": false
         },
         {
@@ -314,34 +300,6 @@
           "type": "TextBox",
           "text": "<font>Strut.io</font>",
           "size": 42,
-          "selected": false
-        },
-        {
-          "src": "http://i.imgur.com/vno0DRM.png",
-          "type": "Image",
-          "x": 807,
-          "y": 229,
-          "scale": {
-            "x": 0.665,
-            "y": 0.665,
-            "width": 133,
-            "height": 133
-          },
-          "imageType": "PNG",
-          "selected": false
-        },
-        {
-          "src": "http://i.imgur.com/AmTxQJ3.png",
-          "type": "Image",
-          "x": 351,
-          "y": 224,
-          "scale": {
-            "x": 0.725,
-            "y": 0.725,
-            "width": 145,
-            "height": 145
-          },
-          "imageType": "PNG",
           "selected": false
         },
         {
@@ -373,8 +331,8 @@
         {
           "src": "https://i.imgsafe.org/8ca47eb.png",
           "type": "Image",
-          "x": 779,
-          "y": 562,
+          "x": 805,
+          "y": 238,
           "scale": {
             "x": 0.69,
             "y": 0.69,
@@ -387,8 +345,8 @@
         {
           "src": "https://i.imgsafe.org/ebf269c.png",
           "type": "Image",
-          "x": 45,
-          "y": 526,
+          "x": 67,
+          "y": 213,
           "scale": {
             "x": 0.875,
             "y": 0.875,
@@ -399,15 +357,15 @@
           "selected": false
         },
         {
-          "src": "https://i.imgsafe.org/213b999.png",
+          "src": "https://i.imgsafe.org/4e8520f.png",
           "type": "Image",
-          "x": 367,
-          "y": 534,
+          "x": 337,
+          "y": 220,
           "scale": {
-            "x": 0.81,
-            "y": 0.81,
-            "width": 162,
-            "height": 162
+            "x": 0.825,
+            "y": 0.825,
+            "width": 165,
+            "height": 165
           },
           "imageType": "PNG",
           "selected": false
@@ -416,14 +374,42 @@
       "z": 0,
       "impScale": 3,
       "rotateX": 0,
-      "rotateY": 0,
+      "rotateY": 3.14,
       "rotateZ": 0,
       "index": 9,
       "selected": false,
       "active": false,
       "surface": "bg-surf-grad-yellow",
-      "x": 2700,
-      "y": 460
+      "x": 1300,
+      "y": 249
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 16,
+          "y": 242,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu, sans-serif\" color=\"#eeeeee\">Advanced Planner</font>",
+          "size": 122,
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 0.1,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 10,
+      "selected": false,
+      "active": true,
+      "background": "bg-transparent",
+      "x": 758,
+      "y": 346
     }
   ],
   "background": "bg-transparent",
@@ -431,102 +417,32 @@
     "components": [
       {
         "TextBox": {},
-        "x": 27,
-        "y": 76,
+        "x": 16,
+        "y": 242,
         "scale": {
           "x": 1,
           "y": 1
         },
         "type": "TextBox",
-        "text": "<font color=\"#000000\">Advanced-Planner</font><br>",
-        "size": 120,
-        "selected": false,
-        "skewX": 0
-      },
-      {
-        "TextBox": {},
-        "x": 489,
-        "y": 341,
-        "scale": {
-          "x": 1,
-          "y": 1
-        },
-        "type": "TextBox",
-        "text": "<font color=\"#626262\">John Elizarraras</font><br>",
-        "size": 72,
+        "text": "<font face=\"Ubuntu, sans-serif\" color=\"#eeeeee\">Advanced Planner</font>",
+        "size": 122,
         "selected": false
-      },
-      {
-        "TextBox": {},
-        "x": -1,
-        "y": 744,
-        "scale": {
-          "x": 1,
-          "y": 1
-        },
-        "type": "TextBox",
-        "text": "<font>Presentation available at: bit.ly/advplanpres</font>",
-        "size": 18,
-        "selected": false
-      },
-      {
-        "src": "http://i.imgur.com/9KDmc4E.png",
-        "type": "Image",
-        "x": 882,
-        "y": 625,
-        "scale": {
-          "x": 0.705,
-          "y": 0.705,
-          "width": 141,
-          "height": 141
-        },
-        "imageType": "PNG",
-        "selected": false
-      },
-      {
-        "TextBox": {},
-        "x": 843,
-        "y": 565,
-        "scale": {
-          "x": 1,
-          "y": 1
-        },
-        "type": "TextBox",
-        "text": "<font>Project Website</font>",
-        "size": 23,
-        "selected": false
-      },
-      {
-        "src": "https://i.imgsafe.org/5bca2f7.png",
-        "type": "Image",
-        "x": 74,
-        "y": 394,
-        "scale": {
-          "x": 0.6,
-          "y": 0.6,
-          "width": 120,
-          "height": 120
-        },
-        "imageType": "PNG",
-        "selected": true
       }
     ],
     "z": 0,
-    "impScale": 3,
+    "impScale": 0.1,
     "rotateX": 0,
     "rotateY": 0,
     "rotateZ": 0,
-    "index": 0,
-    "selected": true,
+    "index": 10,
+    "selected": false,
     "active": true,
-    "x": 148,
-    "y": 162,
-    "markdown": "",
-    "surface": "bg-surf-grad-light",
-    "background": "bg-transparent"
+    "background": "bg-transparent",
+    "x": 758,
+    "y": 346
   },
   "fileName": "AdvancedPlannerPresentation.strut",
-  "surface": "bg-surf-grad-purple",
+  "surface": "bg-surf-grad-black",
   "customStylesheet": "/*.example {\n\tborder: 4px groove orange;\n}*/",
   "deckVersion": "1.0",
   "customBackgrounds": {
@@ -537,6 +453,6 @@
       }
     ]
   },
-  "overviewX": 1413,
+  "overviewX": 713,
   "overviewY": 303
 }
